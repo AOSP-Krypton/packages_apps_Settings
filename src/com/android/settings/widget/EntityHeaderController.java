@@ -81,6 +81,7 @@ public class EntityHeaderController {
     // Required for hearing aid devices.
     private CharSequence mSecondSummary;
     private String mPackageName;
+    private String mPackageNameReal;
     private Intent mAppNotifPrefIntent;
     @UserIdInt
     private int mUid = UserHandle.USER_NULL;
@@ -145,6 +146,7 @@ public class EntityHeaderController {
      */
     public EntityHeaderController setIcon(ApplicationsState.AppEntry appEntry) {
         mIcon = Utils.getBadgedIcon(mAppContext, appEntry.info);
+        mPackageNameReal = appEntry.info.packageName;
         return this;
     }
 
@@ -251,6 +253,15 @@ public class EntityHeaderController {
         if (iconView != null) {
             iconView.setImageDrawable(mIcon);
             iconView.setContentDescription(mIconContentDescription);
+            if (mPackageNameReal != null) {
+                iconView.setOnClickListener(v -> {
+                    final Intent intent = mAppContext.getPackageManager()
+                        .getLaunchIntentForPackage(mPackageNameReal);
+                    if (intent != null) {
+                        mAppContext.startActivity(intent);
+                    }
+                });
+            }
         }
         setText(R.id.entity_header_title, mLabel);
         setText(R.id.entity_header_summary, mSummary);
