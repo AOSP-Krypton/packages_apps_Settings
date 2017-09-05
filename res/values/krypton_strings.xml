@@ -90,4 +90,6 @@
 
     <string name="ambient_display_custom_title">Custom options</string>
 
+   <!-- In-call feedback -->
+   <string name="incall_feeedback_vibrate_title">Vibrate to indicate call status</string>	
 </resources>
