@@ -27,12 +27,14 @@ import android.os.PowerManager;
 import android.text.TextUtils;
 
 import androidx.annotation.VisibleForTesting;
+import androidx.preference.Preference;
 import androidx.preference.PreferenceFragmentCompat;
 import androidx.preference.PreferenceScreen;
 
 import com.android.settings.R;
 import com.android.settings.core.BasePreferenceController;
 import com.android.settings.core.PreferenceControllerMixin;
+import com.android.settings.core.SubSettingLauncher;
 import com.android.settings.fuelgauge.batterytip.tips.BatteryTip;
 import com.android.settings.overlay.FeatureFactory;
 import com.android.settings.widget.EntityHeaderController;
@@ -179,5 +181,18 @@ public class BatteryHeaderPreferenceController extends BasePreferenceController
     private CharSequence formatBatteryPercentageText(int batteryLevel) {
         return TextUtils.expandTemplate(mContext.getText(R.string.battery_header_title_alternate),
                 NumberFormat.getIntegerInstance().format(batteryLevel));
+    }
+
+    @Override
+    public boolean handlePreferenceTreeClick(Preference preference) {
+        if (KEY_BATTERY_HEADER.equals(preference.getKey())) {
+            new SubSettingLauncher(mContext)
+                .setDestination(PowerUsageAdvanced.class.getName())
+                .setSourceMetricsCategory(getMetricsCategory())
+                .setTitleRes(R.string.advanced_battery_title)
+                .launch();
+            return true;
+        }
+        return super.handlePreferenceTreeClick(preference);
     }
 }
