@@ -36,4 +36,6 @@
     <string name="doze_on_charge_title">Always on when charging</string>
     <string name="doze_on_charge_summary">Show doze screen all the time when charging</string>
 
+    <string name="battery_temp">Battery temperature</string>
+
 </resources>
