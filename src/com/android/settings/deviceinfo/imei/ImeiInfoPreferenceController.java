@@ -104,9 +104,13 @@ public class ImeiInfoPreferenceController extends BasePreferenceController {
     }
 
     private CharSequence getSummary(int simSlot) {
-        final int phoneType = getPhoneType(simSlot);
-        return phoneType == PHONE_TYPE_CDMA ? mTelephonyManager.getMeid(simSlot)
+        final PhoneNumberSummaryPreference preference =
+            (PhoneNumberSummaryPreference) mPreferenceList.get(simSlot);
+        if (preference.isRevealing()) {
+            return getPhoneType(simSlot) == PHONE_TYPE_CDMA ? mTelephonyManager.getMeid(simSlot)
                 : mTelephonyManager.getImei(simSlot);
+        }
+        return mContext.getString(R.string.device_info_protected_single_press);
     }
 
     @Override
@@ -114,6 +118,14 @@ public class ImeiInfoPreferenceController extends BasePreferenceController {
         final int simSlot = mPreferenceList.indexOf(preference);
         if (simSlot == -1) {
             return false;
+        }
+
+        final PhoneNumberSummaryPreference imeiPreference =
+            (PhoneNumberSummaryPreference) mPreferenceList.get(simSlot);
+        if (!imeiPreference.isRevealing()) {
+            imeiPreference.setRevealing(true);
+            updatePreference(imeiPreference, simSlot);
+            return true;
         }
 
         ImeiInfoDialogFragment.show(mFragment, simSlot, preference.getTitle().toString());
