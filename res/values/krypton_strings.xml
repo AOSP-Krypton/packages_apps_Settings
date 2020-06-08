@@ -67,5 +67,10 @@
     <string name="data_usage_app_restrict_vpn_summary">Enable usage of VPN data</string>
     <string name="data_usage_app_restrict_wifi">Wi\u2011Fi data</string>
     <string name="data_usage_app_restrict_wifi_summary">Enable usage of Wi\u2011Fi data</string>
-
+   
+    <!-- Ambient Music -->
+    <string name="ambient_music_location">Show ambient music ticker</string>
+    <string name="ambient_music_disabled">Disabled</string>
+    <string name="ambient_music_bottom">At the bottom (default)</string>
+    <string name="ambient_music_center">Centered (under the cLock)</string>
 </resources>
