@@ -73,7 +73,6 @@
         android:order="-160"
         settings:controller="com.android.settings.notification.RingVolumePreferenceController"/>
 
-
     <!-- Alarm volume -->
     <com.android.settings.notification.VolumeSeekBarPreference
         android:key="alarm_volume"
@@ -85,7 +84,7 @@
     <!-- Notification volume -->
     <com.android.settings.notification.VolumeSeekBarPreference
         android:key="notification_volume"
-        android:icon="@drawable/ic_notifications"
+        android:icon="@drawable/ic_audio_notification"
         android:title="@string/notification_volume_option_title"
         android:order="-140"
         settings:controller="com.android.settings.notification.NotificationVolumePreferenceController"/>
