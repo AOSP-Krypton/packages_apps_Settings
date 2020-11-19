@@ -49,4 +49,7 @@
     <!-- Density options -->
     <string name="density_category">Density options</string>
 
+    <!-- Radio Info -->
+    <string name="radio_info_title">Radio info</string>
+
 </resources>
