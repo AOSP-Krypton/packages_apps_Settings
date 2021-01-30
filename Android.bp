@@ -27,7 +27,15 @@ android_library {
         "SettingsLib-search-defaults",
     ],
 
-    srcs: ["src/**/*.java"],
+    srcs: [
+        "src/**/*.java",
+        "KryptonSettings/src/**/*.java",
+    ],
+
+    resource_dirs: [
+        "res",
+        "KryptonSettings/res",
+    ],
 
     static_libs: [
         "androidx-constraintlayout_constraintlayout",
@@ -81,7 +89,6 @@ android_app {
         "settings-platform-compat-config",
     ],
     static_libs: ["Settings-core"],
-    resource_dirs: [],
     optimize: {
         proguard_flags_files: ["proguard.flags"],
     },

@@ -240,4 +240,9 @@ public class Settings extends SettingsActivity {
      */
     public static class MediaControlsSettingsActivity extends SettingsActivity {}
 
+    /**
+     * Krypton Settings
+     */
+    public static class KryptonSettingsActivity extends SettingsActivity {}
+
 }

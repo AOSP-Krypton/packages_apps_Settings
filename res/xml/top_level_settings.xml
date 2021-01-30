@@ -21,6 +21,14 @@
     android:key="top_level_settings">
 
     <Preference
+        android:key="top_level_krypton_settings"
+        android:title="@string/krypton_settings_title"
+        android:summary="@string/krypton_settings_summary"
+        android:icon="@drawable/ic_krypton_logo"
+        android:order="-125"
+        android:fragment="com.krypton.settings.KryptonSettings"/>
+
+    <Preference
         android:key="top_level_network"
         android:title="@string/network_dashboard_title"
         android:summary="@string/summary_placeholder"
