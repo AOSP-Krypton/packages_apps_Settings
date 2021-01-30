@@ -83,6 +83,7 @@
     <color name="fallback_tintColor">#89000000</color>
 
     <!-- Dashboard/homepage icon background colors -->
+    <color name="homepage_krypton_settings_background">#2EC7DC</color>
     <color name="homepage_network_background">#2196F3</color>
     <color name="homepage_connected_device_background">#72B70F</color>
     <color name="homepage_app_and_notification_background">#FF7E0F</color>

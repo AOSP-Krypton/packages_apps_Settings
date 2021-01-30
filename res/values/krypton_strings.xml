@@ -18,4 +18,8 @@
     <!-- KOSP Updater -->
     <string name="kosp_updater_title">KOSP Updater</string>
 
+    <!-- Krypton Settings Title and Description -->
+    <string name="krypton_settings_title">Krypton settings</string>
+    <string name="krypton_settings_summary">Customise your device</string>
+
 </resources>

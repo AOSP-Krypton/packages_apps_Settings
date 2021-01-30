@@ -162,6 +162,7 @@ import com.android.settings.wifi.calling.WifiCallingSettings;
 import com.android.settings.wifi.p2p.WifiP2pSettings;
 import com.android.settings.wifi.savedaccesspoints2.SavedAccessPointsWifiSettings2;
 import com.android.settings.wifi.tether.WifiTetherSettings;
+import com.krypton.settings.fragment.KryptonSettingsFragment;
 
 public class SettingsGateway {
 
@@ -313,11 +314,13 @@ public class SettingsGateway {
             MediaControlsSettings.class.getName(),
             NetworkProviderSettings.class.getName(),
             AlarmsAndRemindersDetails.class.getName(),
-            MediaManagementAppsDetails.class.getName()
+            MediaManagementAppsDetails.class.getName(),
+            KryptonSettingsFragment.class.getName()
     };
 
     public static final String[] SETTINGS_FOR_RESTRICTED = {
             // Home page
+            Settings.KryptonSettingsActivity.class.getName(),
             Settings.NetworkDashboardActivity.class.getName(),
             Settings.ConnectedDeviceDashboardActivity.class.getName(),
             Settings.AppDashboardActivity.class.getName(),
@@ -352,6 +355,6 @@ public class SettingsGateway {
             Settings.EnterprisePrivacySettingsActivity.class.getName(),
             Settings.MyDeviceInfoActivity.class.getName(),
             Settings.ModuleLicensesActivity.class.getName(),
-            UserBackupSettingsActivity.class.getName(),
+            UserBackupSettingsActivity.class.getName()
     };
 }
