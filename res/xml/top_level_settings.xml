@@ -26,7 +26,7 @@
         android:summary="@string/krypton_settings_summary"
         android:icon="@drawable/ic_krypton_logo"
         android:order="-125"
-        android:fragment="com.krypton.settings.KryptonSettings"/>
+        android:fragment="com.krypton.settings.fragment.KryptonSettingsFragment"/>
 
     <Preference
         android:key="top_level_network"
