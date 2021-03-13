@@ -17,7 +17,7 @@
 
     <!-- Krypton Settings Title and Description -->
     <string name="krypton_settings_title">Krypton-ify!</string>
-    <string name="krypton_settings_summary">Customise it like Hell</string>
+    <string name="krypton_settings_summary">Customise your device</string>
 
     <string name="ambient_display_custom_title">Custom options</string>
 </resources>
