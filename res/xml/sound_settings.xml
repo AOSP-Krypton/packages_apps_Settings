@@ -88,7 +88,14 @@
         android:title="@string/alarm_volume_option_title"
         android:order="-140"
         settings:controller="com.android.settings.notification.AlarmVolumePreferenceController"/>
-x
+
+    <!-- Volume panel position -->
+    <SwitchPreference
+        android:key="volume_panel_position"
+        android:title="@string/volume_panel_position_title"
+        android:order="-138"
+        settings:controller="com.android.settings.sound.VolumePanelPositionPreferenceController" />
+
     <!-- TODO(b/174964721): make this a PrimarySwitchPreference -->
     <!-- Interruptions -->
     <com.android.settingslib.RestrictedPreference
@@ -137,7 +144,7 @@ x
         settings:controller="com.android.settings.sound.MediaControlsParentPreferenceController"
         settings:keywords="@string/keywords_media_controls"/>
 
-    <!-- Also vibration -->
+    <!-- Also vibrate -->
     <Preference
         android:fragment="com.android.settings.accessibility.VibrationSettings"
         android:key="vibration_and_haptics"
