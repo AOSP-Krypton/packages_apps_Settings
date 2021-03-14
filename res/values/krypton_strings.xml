@@ -103,4 +103,6 @@
     <!-- Per-app volume control -->
     <string name="app_volume">App volume</string>
 
+    <!-- Volume panel position -->
+    <string name="volume_panel_position_title">Volume panel on left</string>
 </resources>

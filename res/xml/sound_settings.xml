@@ -134,6 +134,13 @@
         settings:controller="com.android.settings.sound.MediaControlsParentPreferenceController"
         settings:keywords="@string/keywords_media_controls"/>
 
+    <!-- Volume panel position -->
+    <SwitchPreference
+        android:key="volume_panel_position"
+        android:title="@string/volume_panel_position_title"
+        android:order="-120"
+        settings:controller="com.android.settings.sound.VolumePanelPositionPreferenceController" />
+
     <!-- Also vibrate for calls -->
     <Preference
         android:fragment="com.android.settings.sound.VibrateForCallsPreferenceFragment"
