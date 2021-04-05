@@ -3423,13 +3423,15 @@
                        android:value="com.krypton.settings.fragment.KryptonSettingsFragment" />
         </activity>
 
+        <activity android:name="com.krypton.settings.miscellaneous.FODSettingsActivity" />
+
         <receiver
             android:name=".media.BluetoothPairingReceiver"
             android:exported="true"
             android:permission="android.permission.BLUETOOTH_ADMIN">
             <intent-filter>
                 <action android:name="com.android.settings.action.LAUNCH_BLUETOOTH_PAIRING"/>
-            </intent-filter>/>
+            </intent-filter>
         </receiver>
 
         <!-- This is the longest AndroidManifest.xml ever. -->

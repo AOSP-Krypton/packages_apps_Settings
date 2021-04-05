@@ -24,9 +24,9 @@
     </item>
 
     <item
-        android:width="@dimen/dashboard_tile_foreground_image_size"
-        android:height="@dimen/dashboard_tile_foreground_image_size"
-        android:start="@dimen/dashboard_tile_foreground_image_inset"
-        android:top="@dimen/dashboard_tile_foreground_image_inset"
+        android:width="@dimen/krypton_dashboard_tile_foreground_image_size"
+        android:height="@dimen/krypton_dashboard_tile_foreground_image_size"
+        android:start="@dimen/krypton_dashboard_tile_foreground_image_inset"
+        android:top="@dimen/krypton_dashboard_tile_foreground_image_inset"
         android:drawable="@drawable/ic_krypton" />
 </layer-list>
