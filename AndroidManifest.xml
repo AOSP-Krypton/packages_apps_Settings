@@ -3412,7 +3412,7 @@
                        android:value="com.android.settings.sound.MediaControlsSettings" />
         </activity>
 
-        <activity android:name=".Settings$KryptonSettingsActivity"
+        <activity android:name="Settings$KryptonSettingsActivity"
                   android:label="@string/krypton_settings_title"
                   android:icon="@drawable/ic_krypton_logo">
             <intent-filter android:priority="1">
@@ -3423,7 +3423,7 @@
                        android:value="com.krypton.settings.fragment.KryptonSettingsFragment" />
         </activity>
 
-        <activity android:name="com.krypton.settings.miscellaneous.FODSettingsActivity" />
+        <activity android:name="com.krypton.settings.lockscreen.FODSettingsActivity" />
 
         <receiver
             android:name=".media.BluetoothPairingReceiver"
