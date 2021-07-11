@@ -3423,8 +3423,6 @@
                        android:value="com.krypton.settings.fragment.KryptonSettingsFragment" />
         </activity>
 
-        <activity android:name="com.krypton.settings.lockscreen.FODSettingsActivity" />
-
         <receiver
             android:name=".media.BluetoothPairingReceiver"
             android:exported="true"
