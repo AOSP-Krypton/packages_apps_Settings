@@ -51,6 +51,7 @@ import java.util.List;
 public class OverlayCategoryPreferenceController extends DeveloperOptionsPreferenceController
         implements Preference.OnPreferenceChangeListener, PreferenceControllerMixin {
     private static final String TAG = "OverlayCategoryPC";
+    private static final boolean DEBUG = false;
     @VisibleForTesting
     static final String PACKAGE_DEVICE_DEFAULT = "package_device_default";
     private static final Comparator<OverlayInfo> OVERLAY_INFO_COMPARATOR =
@@ -116,9 +117,17 @@ public class OverlayCategoryPreferenceController extends DeveloperOptionsPrefere
                 .map(info -> info.packageName)
                 .toArray(String[]::new);
 
-        Log.w(TAG, "setOverlay currentPackageNames=" + currentPackageNames.toString());
-        Log.w(TAG, "setOverlay packageNames=" + packageNames.toString());
-        Log.w(TAG, "setOverlay label=" + label);
+        if (DEBUG) {
+            Log.d(TAG, "currentPackageNames:");
+            for (String pn: currentPackageNames) {
+                Log.d(TAG, pn);
+            }
+            Log.d(TAG, "packageNames:");
+            for (String pn: packageNames) {
+                Log.d(TAG, pn);
+            }
+            Log.d(TAG, "setOverlay label = " + label);
+        }
 
         new AsyncTask<Void, Void, Boolean>() {
             @Override
@@ -126,18 +135,22 @@ public class OverlayCategoryPreferenceController extends DeveloperOptionsPrefere
                 try {
                     if (label.equals(mDeviceDefaultLabel)) {
                         for (String packageName : currentPackageNames) {
-                            Log.w(TAG, "setOverlay Disabing overlay" + packageName);
+                            if (DEBUG) {
+                                Log.d(TAG, "Disabing overlay " + packageName);
+                            }
                             mOverlayManager.setEnabled(packageName, false, USER_SYSTEM);
                         }
                     } else {
                         for (String packageName : packageNames) {
-                            Log.w(TAG, "setOverlay Enabling overlay" + packageName);
+                            if (DEBUG) {
+                                Log.d(TAG, "Enabling overlay " + packageName);
+                            }
                             mOverlayManager.setEnabledExclusiveInCategory(packageName, USER_SYSTEM);
                         }
                     }
                     return true;
                 } catch (Exception e) {
-                    Log.w(TAG, "Error enabling overlay.", e);
+                    Log.e(TAG, "Error enabling overlay.", e);
                     return false;
                 }
             }
@@ -171,7 +184,9 @@ public class OverlayCategoryPreferenceController extends DeveloperOptionsPrefere
                 labels.add(label);
             }
             if (overlayInfo.isEnabled()) {
-                Log.w(TAG, "updateState Selecting label"+label);
+                if (DEBUG) {
+                    Log.d(TAG, "Selecting label " + label);
+                }
                 selectedLabel = label;
             }
         }
@@ -200,7 +215,12 @@ public class OverlayCategoryPreferenceController extends DeveloperOptionsPrefere
             throw re.rethrowFromSystemServer();
         }
         filteredInfos.sort(OVERLAY_INFO_COMPARATOR);
-        Log.w(TAG, "getOverlays list=" + filteredInfos.toString());
+        if (DEBUG) {
+            Log.d(TAG, "Available overlays:");
+            for (OverlayInfo info: filteredInfos) {
+                Log.d(TAG, info.toString());
+            }
+        }
         return filteredInfos;
     }
 
