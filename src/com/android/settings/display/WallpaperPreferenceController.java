@@ -18,7 +18,6 @@ import static android.os.UserManager.DISALLOW_SET_WALLPAPER;
 import android.content.ComponentName;
 import android.content.Context;
 import android.content.Intent;
-import android.content.pm.PackageManager;
 import android.content.pm.ResolveInfo;
 import android.os.UserHandle;
 import android.text.TextUtils;
@@ -36,17 +35,19 @@ import java.util.List;
 
 public class WallpaperPreferenceController extends BasePreferenceController {
     private static final String TAG = "WallpaperPrefController";
-
     private final String mWallpaperPackage;
     private final String mWallpaperClass;
+    private final String mStylesAndWallpaperPackage;
     private final String mStylesAndWallpaperClass;
 
     public WallpaperPreferenceController(Context context, String key) {
         super(context, key);
         mWallpaperPackage = mContext.getString(R.string.config_wallpaper_picker_package);
         mWallpaperClass = mContext.getString(R.string.config_wallpaper_picker_class);
-        mStylesAndWallpaperClass =
-                mContext.getString(R.string.config_styles_and_wallpaper_picker_class);
+        mStylesAndWallpaperPackage = mContext.getString(
+            R.string.config_styles_and_wallpaper_picker_package);
+        mStylesAndWallpaperClass = mContext.getString(
+            R.string.config_styles_and_wallpaper_picker_class);
     }
 
     @Override
@@ -62,8 +63,11 @@ public class WallpaperPreferenceController extends BasePreferenceController {
     }
 
     public ComponentName getComponentName() {
-        return new ComponentName(mWallpaperPackage,
-                areStylesAvailable() ? mStylesAndWallpaperClass : mWallpaperClass);
+        if (areStylesAvailable()) {
+            return new ComponentName(mStylesAndWallpaperPackage, mStylesAndWallpaperClass);
+        } else {
+            return new ComponentName(mWallpaperPackage, mWallpaperClass);
+        }
     }
 
     public String getKeywords() {
@@ -80,7 +84,7 @@ public class WallpaperPreferenceController extends BasePreferenceController {
             Log.e(TAG, "No Wallpaper picker specified!");
             return UNSUPPORTED_ON_DEVICE;
         }
-        return canResolveWallpaperComponent(mWallpaperClass)
+        return canResolveWallpaperComponent(mWallpaperPackage, mWallpaperClass)
                 ? AVAILABLE_UNSEARCHABLE : CONDITIONALLY_UNAVAILABLE;
     }
 
@@ -105,14 +109,15 @@ public class WallpaperPreferenceController extends BasePreferenceController {
     /** Returns whether Styles & Wallpaper is enabled and available. */
     public boolean areStylesAvailable() {
         return !TextUtils.isEmpty(mStylesAndWallpaperClass)
-                && canResolveWallpaperComponent(mStylesAndWallpaperClass);
+                && canResolveWallpaperComponent(mStylesAndWallpaperPackage,
+                        mStylesAndWallpaperClass);
     }
 
-    private boolean canResolveWallpaperComponent(String className) {
-        final ComponentName componentName = new ComponentName(mWallpaperPackage, className);
-        final PackageManager pm = mContext.getPackageManager();
+    private boolean canResolveWallpaperComponent(String pkgName, String className) {
+        final ComponentName componentName = new ComponentName(pkgName, className);
         final Intent intent = new Intent().setComponent(componentName);
-        final List<ResolveInfo> resolveInfos = pm.queryIntentActivities(intent, 0 /* flags */);
+        final List<ResolveInfo> resolveInfos = mContext.getPackageManager()
+            .queryIntentActivities(intent, 0 /* flags */);
         return resolveInfos != null && !resolveInfos.isEmpty();
     }
 
