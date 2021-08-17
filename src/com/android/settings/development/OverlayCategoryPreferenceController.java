@@ -22,10 +22,10 @@ import android.content.Context;
 import android.content.om.IOverlayManager;
 import android.content.om.OverlayInfo;
 import android.content.pm.PackageManager;
-import android.os.AsyncTask;
+import android.os.Handler;
+import android.os.Looper;
 import android.os.RemoteException;
 import android.os.ServiceManager;
-import android.text.TextUtils;
 import android.util.Log;
 import android.widget.Toast;
 
@@ -41,6 +41,8 @@ import com.android.settingslib.development.DeveloperOptionsPreferenceController;
 import java.util.ArrayList;
 import java.util.Collection;
 import java.util.Comparator;
+import java.util.concurrent.ExecutorService;
+import java.util.concurrent.Executors;
 import java.util.List;
 
 /**
@@ -61,7 +63,8 @@ public class OverlayCategoryPreferenceController extends DeveloperOptionsPrefere
     private final String mCategory;
     private final PackageManager mPackageManager;
     private final String mDeviceDefaultLabel;
-
+    private final Handler mHandler;
+    private final ExecutorService mExecutorService;
     private ListPreference mPreference;
 
     @VisibleForTesting
@@ -71,8 +74,10 @@ public class OverlayCategoryPreferenceController extends DeveloperOptionsPrefere
         mOverlayManager = overlayManager;
         mPackageManager = packageManager;
         mCategory = category;
-        mAvailable = overlayManager != null && !getOverlayInfos().isEmpty();
+        mAvailable = overlayManager != null && isAnyOverlayAvailable();
         mDeviceDefaultLabel = mContext.getString(R.string.overlay_option_device_default);
+        mHandler = new Handler(Looper.getMainLooper());
+        mExecutorService = Executors.newSingleThreadExecutor();
     }
 
     public OverlayCategoryPreferenceController(Context context, String category) {
@@ -103,70 +108,57 @@ public class OverlayCategoryPreferenceController extends DeveloperOptionsPrefere
 
     @Override
     public boolean onPreferenceChange(Preference preference, Object newValue) {
-        return setOverlay((String) newValue);
+        setOverlay((String) newValue);
+        return true;
     }
 
-    private boolean setOverlay(String label) {
-        final String[] currentPackageNames = getOverlayInfos().stream()
+    private void setOverlay(String label) {
+        final List<OverlayInfo> overlayInfos = getOverlayInfos();
+        final String[] enabledPackageNames = overlayInfos.stream()
                 .filter(info -> info.isEnabled())
                 .map(info -> info.packageName)
                 .toArray(String[]::new);
 
-        final String[] packageNames = getOverlayInfos().stream()
+        final String[] packageNamesForLabel = overlayInfos.stream()
                 .filter(info -> label.equals(getPackageLabel(info.packageName)))
                 .map(info -> info.packageName)
                 .toArray(String[]::new);
 
         if (DEBUG) {
-            Log.d(TAG, "currentPackageNames:");
-            for (String pn: currentPackageNames) {
+            Log.d(TAG, "enabledPackageNames:");
+            for (String pn: enabledPackageNames) {
                 Log.d(TAG, pn);
             }
-            Log.d(TAG, "packageNames:");
-            for (String pn: packageNames) {
+            Log.d(TAG, "packageNamesForLabel:");
+            for (String pn: packageNamesForLabel) {
                 Log.d(TAG, pn);
             }
             Log.d(TAG, "setOverlay label = " + label);
         }
 
-        new AsyncTask<Void, Void, Boolean>() {
-            @Override
-            protected Boolean doInBackground(Void... params) {
-                try {
-                    if (label.equals(mDeviceDefaultLabel)) {
-                        for (String packageName : currentPackageNames) {
-                            if (DEBUG) {
-                                Log.d(TAG, "Disabing overlay " + packageName);
-                            }
-                            mOverlayManager.setEnabled(packageName, false, USER_SYSTEM);
-                        }
-                    } else {
-                        for (String packageName : packageNames) {
-                            if (DEBUG) {
-                                Log.d(TAG, "Enabling overlay " + packageName);
-                            }
-                            mOverlayManager.setEnabledExclusiveInCategory(packageName, USER_SYSTEM);
-                        }
+        mExecutorService.execute(() -> {
+            try {
+                for (String packageName : enabledPackageNames) {
+                    if (DEBUG) {
+                        Log.d(TAG, "Disabing overlay " + packageName);
                     }
-                    return true;
-                } catch (Exception e) {
-                    Log.e(TAG, "Error enabling overlay.", e);
-                    return false;
+                    mOverlayManager.setEnabled(packageName, false, USER_SYSTEM);
                 }
-            }
-
-            @Override
-            protected void onPostExecute(Boolean success) {
-                updateState(mPreference);
-                if (!success) {
-                    Toast.makeText(
-                            mContext, R.string.overlay_toast_failed_to_apply, Toast.LENGTH_LONG)
-                            .show();
+                for (String packageName : packageNamesForLabel) {
+                    if (DEBUG) {
+                        Log.d(TAG, "Enabling overlay " + packageName);
+                    }
+                    mOverlayManager.setEnabledExclusiveInCategory(packageName, USER_SYSTEM);
                 }
-            }
-        }.execute();
 
-        return true; // Assume success; toast on failure.
+            } catch (Exception e) {
+                Log.e(TAG, "Error enabling overlay.", e);
+                mHandler.post(() ->
+                    Toast.makeText(mContext, R.string.overlay_toast_failed_to_apply,
+                        Toast.LENGTH_LONG).show());
+            }
+            mHandler.post(() -> updateState(mPreference));
+        });
     }
 
     @Override
@@ -222,6 +214,23 @@ public class OverlayCategoryPreferenceController extends DeveloperOptionsPrefere
             }
         }
         return filteredInfos;
+    }
+
+    private boolean isAnyOverlayAvailable() {
+        try {
+            Collection<List<OverlayInfo>> allOverlays = mOverlayManager.getAllOverlays(
+                    USER_SYSTEM).values();
+            for (List<OverlayInfo> overlayInfos : allOverlays) {
+                for (OverlayInfo overlayInfo : overlayInfos) {
+                    if (overlayInfo.category != null) {
+                        return true;
+                    }
+                }
+            }
+        } catch (RemoteException re) {
+            throw re.rethrowFromSystemServer();
+        }
+        return false;
     }
 
     private String getPackageLabel(String packageName) {
