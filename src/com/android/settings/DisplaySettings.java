@@ -21,6 +21,7 @@ import android.content.Context;
 import android.os.Bundle;
 
 import com.android.settings.dashboard.DashboardFragment;
+import com.android.settings.development.AccentOverlayCategoryPreferenceController;
 import com.android.settings.development.DefaultLaunchPreferenceController;
 import com.android.settings.development.OverlayCategoryPreferenceController;
 import com.android.settings.display.BrightnessLevelPreferenceController;
@@ -95,7 +96,7 @@ public class DisplaySettings extends DashboardFragment {
         controllers.add(new ThemePreferenceController(context));
         controllers.add(new BrightnessLevelPreferenceController(context, lifecycle));
         controllers.add(new DefaultLaunchPreferenceController(context, "density"));
-        controllers.add(new OverlayCategoryPreferenceController(context,
+        controllers.add(new AccentOverlayCategoryPreferenceController(context,
                 "android.theme.customization.accent_color"));
         controllers.add(new OverlayCategoryPreferenceController(context,
                 "android.theme.customization.font"));
