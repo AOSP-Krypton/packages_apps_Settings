@@ -13,9 +13,7 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
-
 package com.android.settings.display;
-
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.Collections;
@@ -47,6 +45,7 @@ public class FontPickerPreferenceController extends AbstractPreferenceController
         implements PreferenceControllerMixin, LifecycleObserver, OnResume {
     private static final String TAG = "FontPickerPreferenceController";
     private static final String KEY_FONT_PICKER_FRAGMENT_PREF = "custom_font";
+    private static final String SUBS_PACKAGE = "projekt.substratum";
     private FontDialogPreference mFontPreference;
     private IFontService mFontService;
 
@@ -64,13 +63,22 @@ public class FontPickerPreferenceController extends AbstractPreferenceController
         if (mFontPreference == null) {
             return;
         }
-        mFontPreference.setSummary(getCurrentFontInfo().fontName.replace("_", " "));
+        if (!isPackageInstalled(SUBS_PACKAGE, mContext)) {
+            mFontPreference.setSummary(getCurrentFontInfo().fontName.replace("_", " "));
+        } else {
+            mFontPreference.setSummary(mContext.getString(
+                    com.android.settings.R.string.disable_fonts_installed_title));
+        }
     }
 
     @Override
     public void displayPreference(PreferenceScreen screen) {
         mFontPreference = (FontDialogPreference) screen.findPreference(KEY_FONT_PICKER_FRAGMENT_PREF);
-        mFontPreference.setEnabled(true);
+        if (!isPackageInstalled(SUBS_PACKAGE, mContext)) {
+            mFontPreference.setEnabled(true);
+        } else {
+            mFontPreference.setEnabled(false);
+        }
     }
 
     @Override
@@ -91,7 +99,13 @@ public class FontPickerPreferenceController extends AbstractPreferenceController
         }
     }
 
-    public void stopProgress() {
-        mFontPreference.stopProgress();
+    private boolean isPackageInstalled(String package_name, Context context) {
+        try {
+            PackageManager pm = context.getPackageManager();
+            pm.getPackageInfo(package_name, PackageManager.GET_ACTIVITIES);
+            return true;
+        } catch (Exception e) {
+            return false;
+        }
     }
 }
