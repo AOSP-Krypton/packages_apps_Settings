@@ -16,10 +16,7 @@
 
 package com.android.settings.notification;
 
-import android.content.ContentResolver;
 import android.content.Context;
-import android.content.res.Resources;
-import android.provider.Settings;
 
 import androidx.preference.Preference;
 import androidx.preference.PreferenceScreen;
@@ -29,7 +26,7 @@ import com.android.settingslib.core.AbstractPreferenceController;
 import com.android.settings.notification.VolumeSeekBarPreference;
 import com.android.settings.R;
 
-import com.yasp.settings.preferences.SecureSettingSwitchPreference;
+import com.krypton.settings.preference.SettingSwitchPreference;
 
 public class LinkedVolumesPreferenceController extends AbstractPreferenceController
         implements Preference.OnPreferenceChangeListener {
@@ -39,9 +36,8 @@ public class LinkedVolumesPreferenceController extends AbstractPreferenceControl
     private static final String KEY_VOLUME_NOTIFICATION = "notification_volume";
 
     private Context mContext;
-    private SecureSettingSwitchPreference mLinkedVolume;
-    private VolumeSeekBarPreference mRingVolume;
-    private VolumeSeekBarPreference mNotificationVolume;
+    private SettingSwitchPreference mLinkedVolume;
+    private VolumeSeekBarPreference mRingVolume, mNotificationVolume;
 
     public LinkedVolumesPreferenceController(Context context) {
         super(context);
@@ -66,20 +62,14 @@ public class LinkedVolumesPreferenceController extends AbstractPreferenceControl
         }
         mRingVolume = (VolumeSeekBarPreference) screen.findPreference(KEY_VOLUME_RING);
         mNotificationVolume = (VolumeSeekBarPreference) screen.findPreference(KEY_VOLUME_NOTIFICATION);
-        mLinkedVolume = (SecureSettingSwitchPreference) screen.findPreference(KEY_VOLUME_LINK_NOTIFICATION);
+        mLinkedVolume = (SettingSwitchPreference) screen.findPreference(KEY_VOLUME_LINK_NOTIFICATION);
         mLinkedVolume.setOnPreferenceChangeListener(this);
-        boolean enabled = Settings.Secure.getInt(mContext.getContentResolver(),
-                KEY_VOLUME_LINK_NOTIFICATION, 1) == 1;
-        mLinkedVolume.setChecked(enabled ? true : false);
-        updateNotificationVis(enabled);
+        updateNotificationVis(mLinkedVolume.isChecked());
     }
 
     @Override
     public boolean onPreferenceChange(Preference preference, Object newValue) {
-        boolean enabled = (Boolean) newValue;
-        Settings.Secure.putInt(mContext.getContentResolver(),
-                KEY_VOLUME_LINK_NOTIFICATION, enabled ? 1 : 0);
-        updateNotificationVis(enabled);
+        updateNotificationVis((Boolean) newValue);
         return true;
     }
 
@@ -87,14 +77,8 @@ public class LinkedVolumesPreferenceController extends AbstractPreferenceControl
         if (mRingVolume == null || mNotificationVolume == null) {
             return;
         }
-        if (linked) {
-            mRingVolume.setTitle(mContext.getResources().getString(
-                    R.string.ring_volume_option_title));
-            mNotificationVolume.setVisible(false);
-        } else {
-            mRingVolume.setTitle(mContext.getResources().getString(
-                    R.string.ring_volume_unlinked_option_title));
-            mNotificationVolume.setVisible(true);
-        }
+        mRingVolume.setTitle(mContext.getResources().getString(linked ?
+            R.string.ring_volume_option_title : R.string.ring_volume_unlinked_option_title));
+        mNotificationVolume.setVisible(!linked);
     }
 }

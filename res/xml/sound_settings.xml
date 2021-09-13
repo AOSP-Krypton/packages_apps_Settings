@@ -93,8 +93,10 @@
     <com.krypton.settings.preference.SettingSwitchPreference
         android:key="volume_link_notification"
         android:title="@string/volume_link_notification_title"
-        android:defaultValue="true"
-        android:order="-139" />
+        android:order="-139"
+        settings:settingKey="volume_link_notification"
+        settings:settingNamespace="secure"
+        settings:settingDefault="1" />
 
     <!-- Also vibrate for calls -->
     <Preference
