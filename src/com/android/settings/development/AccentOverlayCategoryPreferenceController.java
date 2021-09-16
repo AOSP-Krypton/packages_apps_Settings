@@ -71,6 +71,7 @@ public class AccentOverlayCategoryPreferenceController extends OverlayCategoryPr
         if (!isReset) {
             ListPreference listPreference = (ListPreference) preference;
             listPreference.setValue(null);
+            listPreference.setSummary(null);
         }
     }
 
