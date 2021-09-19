@@ -130,4 +130,11 @@
 
     <!-- Volume link notification -->
     <string name="volume_link_notification_title">Link ring &amp; notification volumes</string>
+
+    <!-- Developer info -->
+    <string name="device_maintainer">Device maintainer</string>
+    <string name="device_maintainer_name">@string/device_info_default</string>
+
+    <!-- KOSP Version -->
+    <string name="kosp_version">KOSP Version</string>
 </resources>
