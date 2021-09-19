@@ -21,6 +21,15 @@
     android:title="@string/firmware_version"
     settings:keywords="@string/keywords_android_version">
 
+    <!-- KOSP version -->
+    <Preference
+        android:key="kosp_version"
+        android:title="@string/kosp_version"
+        android:summary="@string/summary_placeholder"
+        settings:enableCopying="true"
+        settings:searchable="false"
+        settings:controller="com.android.settings.deviceinfo.firmwareversion.KOSPVersionPreferenceController"/>
+
     <!-- Android version -->
     <Preference
         android:key="os_firmware_version"
@@ -53,6 +62,15 @@
         android:selectable="false"
         settings:enableCopying="true"
         settings:controller="com.android.settings.deviceinfo.firmwareversion.BasebandVersionPreferenceController"/>
+
+    <!-- Device maintainer -->
+    <Preference
+        android:key="device_maintainer"
+        android:title="@string/device_maintainer"
+        android:summary="@string/summary_placeholder"
+        android:selectable="false"
+        settings:enableCopying="true"
+        settings:controller="com.android.settings.deviceinfo.firmwareversion.DeviceMaintainerPreferenceController"/>
 
     <!-- Kernel -->
     <Preference
