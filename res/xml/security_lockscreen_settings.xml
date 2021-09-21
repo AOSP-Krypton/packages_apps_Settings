@@ -89,7 +89,7 @@
         <Preference
             android:key="always_on_display_schedule"
             android:title="@string/always_on_display_schedule_title"
-            android:fragment="com.krypton.settings.fragment.AODSchedule"
+            android:fragment="com.android.settings.display.AODSchedule"
             settings:controller="com.android.settings.display.AODSchedulePreferenceController" />
 
         <SwitchPreference
