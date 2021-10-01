@@ -175,6 +175,19 @@ public class VibrationPatternPreferenceController extends AbstractPreferenceCont
     }
 
     @Override
+    public void updateState(Preference preference) {
+        super.updateState(preference);
+        final boolean rampingRinger = Settings.Global.getInt(
+            mContext.getContentResolver(),
+            Settings.Global.APPLY_RAMPING_RINGER, 0) == 1;
+        final boolean alwaysVibrate = Settings.System.getInt(
+            mContext.getContentResolver(),
+            Settings.System.VIBRATE_WHEN_RINGING, 0) == 1;
+        preference.setEnabled(rampingRinger || alwaysVibrate);
+        mCustomVibCategory.setEnabled(rampingRinger || alwaysVibrate);
+    }
+
+    @Override
     public boolean onPreferenceChange(Preference preference, Object newValue) {
         if (preference == mVibPattern) {
             int vibPattern = Integer.parseInt((String) newValue);

@@ -114,7 +114,6 @@
         android:order="-125"
         android:entries="@array/vibration_pattern_entries"
         android:entryValues="@array/vibration_pattern_values"
-        android:dependency="vibrate_for_calls"
         android:summary="%s" />
 
     <!-- Custom ringtone vibration pattern category -->
@@ -122,8 +121,7 @@
         android:key="custom_vibration_pattern"
         android:title="@string/custom_vibration_pattern_title"
         android:order="-124"
-        android:visibility="gone"
-        android:dependency="vibrate_for_calls">
+        android:visibility="gone">
 
         <!-- Custom ringtone vibration pattern 1 -->
         <com.krypton.settings.preference.CustomSeekBarPreference
