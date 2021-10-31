@@ -36,7 +36,7 @@ public class KOSPVersionPreferenceController(
 
     override public fun getAvailabilityStatus() = AVAILABLE
 
-    override public fun getSummary() = SystemProperties.get(KOSP_VERSION_PROP,
+    override public fun getSummary() = SystemProperties.get(KRYPTON_VERSION_PROP,
         context.getString(R.string.device_info_not_available))
 
     override public fun handlePreferenceTreeClick(preference: Preference): Boolean {
@@ -57,6 +57,6 @@ public class KOSPVersionPreferenceController(
 
     companion object {
         private const val TAG = "KOSPVersionPreferenceController"
-        private const val KOSP_VERSION_PROP = "ro.krypton.build.version"
+        private const val KRYPTON_VERSION_PROP = "ro.krypton.build.version"
     }
 }

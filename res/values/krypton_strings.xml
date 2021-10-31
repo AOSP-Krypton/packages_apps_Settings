@@ -82,8 +82,8 @@
     <string name="device_maintainer">Device maintainer</string>
     <string name="device_maintainer_name">@string/device_info_default</string>
 
-    <!-- KOSP Version -->
-    <string name="kosp_version">KOSP Version</string>
+    <!-- Krypton version -->
+    <string name="krypton_version">Krypton version</string>
 	
     <!-- App details: open play store link if app is user installed -->
     <string name="app_play_store">Google Play</string>

@@ -21,10 +21,10 @@
     android:title="@string/firmware_version"
     settings:keywords="@string/keywords_android_version">
 
-    <!-- KOSP version -->
+    <!-- Krypton version -->
     <Preference
-        android:key="kosp_version"
-        android:title="@string/kosp_version"
+        android:key="krypton_version"
+        android:title="@string/krypton_version"
         android:summary="@string/summary_placeholder"
         settings:enableCopying="true"
         settings:searchable="false"
