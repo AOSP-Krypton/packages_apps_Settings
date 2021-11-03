@@ -79,10 +79,10 @@ public class LiveDisplaySettings extends SettingsPreferenceFragment implements
     private static final String KEY_CATEGORY_ADVANCED = "advanced";
 
     private static final String KEY_LIVE_DISPLAY = "live_display";
-    private static final String KEY_LIVE_DISPLAY_AUTO_OUTDOOR_MODE = "outdoor_mode";
-    private static final String KEY_LIVE_DISPLAY_READING_ENHANCEMENT = "reading_mode";
+    private static final String KEY_LIVE_DISPLAY_AUTO_OUTDOOR_MODE = "display_auto_outdoor_mode";
+    private static final String KEY_LIVE_DISPLAY_READING_ENHANCEMENT = "display_reading_mode";
     private static final String KEY_LIVE_DISPLAY_LOW_POWER = "display_low_power";
-    private static final String KEY_LIVE_DISPLAY_COLOR_ENHANCE = "color_enhance";
+    private static final String KEY_LIVE_DISPLAY_COLOR_ENHANCE = "display_color_enhance";
     private static final String KEY_LIVE_DISPLAY_TEMPERATURE = "live_display_color_temperature";
 
     private static final String KEY_DISPLAY_COLOR = "color_calibration";

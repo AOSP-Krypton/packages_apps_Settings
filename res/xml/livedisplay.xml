@@ -39,22 +39,18 @@
             android:persistent="false" />
 
     <!-- Outdoor mode / SRE -->
-    <com.krypton.settings.preference.SettingSwitchPreference
-            android:key="outdoor_mode"
+    <com.krypton.settings.preference.SystemSettingSwitchPreference
+            android:key="display_auto_outdoor_mode"
             android:title="@string/live_display_outdoor_mode_title"
             android:summary="@string/live_display_outdoor_mode_summary"
-            settings:settingKey="display_auto_outdoor_mode"
-            settings:settingNamespace="system"
-            settings:settingDefault="@*android:bool/config_defaultAutoOutdoorMode" />
+            android:defaultValue="@*android:bool/config_defaultAutoOutdoorMode" />
 
     <!-- Reading mode -->
-    <com.krypton.settings.preference.SettingSwitchPreference
-            android:key="reading_mode"
+    <com.krypton.settings.preference.SystemSettingSwitchPreference
+            android:key="display_reading_mode"
             android:title="@string/live_display_reading_mode_title"
             android:summary="@string/live_display_reading_mode_summary"
-            android:persistent="false"
-            settings:settingKey="display_reading_mode"
-            settings:settingNamespace="system" />
+            android:persistent="false" />
 
     <PreferenceCategory
             android:key="advanced"
@@ -77,22 +73,18 @@
                 android:persistent="false"/>
 
         <!-- Adaptive backlight -->
-        <com.krypton.settings.preference.SettingSwitchPreference
+        <com.krypton.settings.preference.SystemSettingSwitchPreference
                 android:key="display_low_power"
                 android:title="@string/live_display_low_power_title"
                 android:summary="@string/live_display_low_power_summary"
-                settings:settingKey="display_low_power"
-                settings:settingNamespace="system"
-                settings:settingDefault="@*android:bool/config_defaultCABC" />
+                android:defaultValue="@*android:bool/config_defaultCABC" />
 
         <!-- Color enhancement -->
-        <com.krypton.settings.preference.SettingSwitchPreference
-                android:key="color_enhance"
+        <com.krypton.settings.preference.SystemSettingSwitchPreference
+                android:key="display_color_enhance"
                 android:title="@string/live_display_enhance_color_title"
                 android:summary="@string/live_display_enhance_color_summary"
-                settings:settingKey="display_color_enhance"
-                settings:settingNamespace="system"
-                settings:settingDefault="@*android:bool/config_defaultColorEnhancement" />
+                android:defaultValue="@*android:bool/config_defaultColorEnhancement" />
 
     </PreferenceCategory>
 
