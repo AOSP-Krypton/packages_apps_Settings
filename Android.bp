@@ -47,7 +47,6 @@ android_library {
     srcs: [
         "src/**/*.java",
         "src/**/*.kt",
-        "KryptonSettings/src/**/*.java",
         "KryptonSettings/src/**/*.kt",
     ],
 
