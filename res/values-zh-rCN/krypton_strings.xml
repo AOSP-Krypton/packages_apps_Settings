@@ -90,4 +90,6 @@
 
     <string name="ambient_display_custom_title">自定义选项</string>
 
+   <!-- In-call feedback -->
+   <string name="incall_feeedback_vibrate_title">震动提示通话状态</string>	
 </resources>
