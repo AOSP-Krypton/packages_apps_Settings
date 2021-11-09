@@ -90,6 +90,11 @@
 
     <string name="ambient_display_custom_title">自定义选项</string>
 
-   <!-- In-call feedback -->
-   <string name="incall_feeedback_vibrate_title">震动提示通话状态</string>	
+    <!-- In-call feedback -->
+    <string name="incall_feeedback_vibrate_title">震动提示通话状态</string>
+
+    <!-- Doze on charge -->
+    <string name="doze_on_charge_title">充电时保持开启</string>
+    <string name="doze_on_charge_summary">充电时一直开启息屏显示</string>
+
 </resources>
