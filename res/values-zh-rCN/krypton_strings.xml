@@ -97,4 +97,13 @@
     <string name="doze_on_charge_title">充电时保持开启</string>
     <string name="doze_on_charge_summary">充电时一直开启息屏显示</string>
 
+    <!-- Default getTimeSpentInApp string for Wellbeing to display. [CHAR LIMIT=NONE] --> 
+    <string name="duration_less_than_one_minute">少于一分钟</string> 
+
+    <!-- Summary for Wellbeing screen time usage. [CHAR LIMIT=NONE] -->
+    <string name="screen_time_summary_usage_today">今天 %1$s</string>
+
+    <!-- Annoying Notifs -->
+    <string name="notification_sound_vib_screen_on_title">通知提醒</string>
+    <string name="notification_sound_vib_screen_on_summary">屏幕开启时收到通知将播放提示音并震动</string>
 </resources>
