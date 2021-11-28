@@ -106,4 +106,13 @@
     <!-- Annoying Notifs -->
     <string name="notification_sound_vib_screen_on_title">通知提醒</string>
     <string name="notification_sound_vib_screen_on_summary">屏幕开启时收到通知将播放提示音并震动</string>
+
+    <!-- Volume link notification -->
+    <string name="volume_link_notification_title">绑定响铃和通知提示音</string>
+
+    <!-- Fullscreen gestures -->
+    <string name="other_controls_title">其他设置</string>
+    <string name="fullscreen_gestures_title">全面屏手势</string>
+    <string name="fullscreen_gestures_summary">隐藏小白条</string>
+
 </resources>
