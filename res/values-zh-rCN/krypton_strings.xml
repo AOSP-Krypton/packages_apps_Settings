@@ -115,4 +115,9 @@
     <string name="fullscreen_gestures_title">全面屏手势</string>
     <string name="fullscreen_gestures_summary">隐藏小白条</string>
 
+    <!-- Gesture navbar length -->
+    <string name="gesture_navbar_length_title">小白条长度</string>
+    <string name="short_label">短</string>
+    <string name="long_label">长</string>
+
 </resources>
