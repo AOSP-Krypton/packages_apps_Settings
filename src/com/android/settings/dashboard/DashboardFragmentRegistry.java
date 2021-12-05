@@ -55,6 +55,8 @@ import java.util.Map;
  */
 public class DashboardFragmentRegistry {
 
+    private static final String CATEGORY_KRYPTON = "com.android.settings.category.ia.krypton";
+
     /**
      * Map from parent fragment to category key. The parent fragment hosts child with
      * category_key.
@@ -72,7 +74,7 @@ public class DashboardFragmentRegistry {
         PARENT_TO_CATEGORY_KEY_MAP.put(TopLevelSettings.class.getName(),
                 CategoryKey.CATEGORY_HOMEPAGE);
         PARENT_TO_CATEGORY_KEY_MAP.put(KryptonSettingsFragment.class.getName(),
-                CategoryKey.CATEGORY_SYSTEM_DEVELOPMENT);
+                CATEGORY_KRYPTON);
         PARENT_TO_CATEGORY_KEY_MAP.put(
                 NetworkDashboardFragment.class.getName(), CategoryKey.CATEGORY_NETWORK);
         PARENT_TO_CATEGORY_KEY_MAP.put(ConnectedDeviceDashboardFragment.class.getName(),
