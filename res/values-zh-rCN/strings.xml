@@ -2875,7 +2875,7 @@
     <string name="battery_saver_turn_on_automatically_never" msgid="6194649389871448663">"一律不"</string>
     <string name="battery_saver_turn_on_automatically_pct" msgid="4294335680892392449">"电量剩余 <xliff:g id="PERCENT">%1$s</xliff:g> 时"</string>
     <string name="battery_percentage" msgid="1779934245963043490">"电池电量百分比"</string>
-    <string name="battery_percentage_description" msgid="2321465139126125541">"在状态栏中显示电池电量百分比"</string>
+    <string name="battery_percentage_description" msgid="2321465139126125541">"状态栏中显示电量百分比"</string>
     <string name="battery_usage_chart_graph_hint" msgid="9182079098173323005">"过去 24 小时内的电池电量变化"</string>
     <string name="battery_app_usage_for_past_24" msgid="1234770810563940656">"过去 24 小时内的应用耗电量"</string>
     <string name="battery_system_usage_for_past_24" msgid="3341520273114616263">"过去 24 小时内的系统耗电量"</string>
