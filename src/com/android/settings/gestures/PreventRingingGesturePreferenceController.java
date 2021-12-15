@@ -16,17 +16,17 @@
 
 package com.android.settings.gestures;
 
-import static android.provider.Settings.Secure.KOSP_VOLUME_HUSH_OFF;
 import static android.provider.Settings.Secure.KOSP_VOLUME_HUSH_MUTE;
 import static android.provider.Settings.Secure.KOSP_VOLUME_HUSH_NORMAL;
+import static android.provider.Settings.Secure.KOSP_VOLUME_HUSH_OFF;
 import static android.provider.Settings.Secure.KOSP_VOLUME_HUSH_VIBRATE;
 
-import android.content.ContentResolver;
 import android.content.Context;
 import android.database.ContentObserver;
 import android.net.Uri;
 import android.os.Handler;
 import android.provider.Settings;
+import android.text.TextUtils;
 
 import androidx.preference.Preference;
 import androidx.preference.PreferenceCategory;
@@ -40,7 +40,6 @@ import com.android.settingslib.core.lifecycle.Lifecycle;
 import com.android.settingslib.core.lifecycle.LifecycleObserver;
 import com.android.settingslib.core.lifecycle.events.OnPause;
 import com.android.settingslib.core.lifecycle.events.OnResume;
-import com.android.settingslib.widget.LayoutPreference;
 import com.android.settingslib.widget.MainSwitchPreference;
 
 import java.util.ArrayList;
@@ -50,22 +49,22 @@ public class PreventRingingGesturePreferenceController extends AbstractPreferenc
         implements Preference.OnPreferenceChangeListener, LifecycleObserver,
         OnResume, OnPause, PreferenceControllerMixin {
 
-    static final String KEY_MASTER = "gesture_prevent_ringing_switch";
-    static final String KEY_VIBRATE = "prevent_ringing_option_vibrate";
-    static final String KEY_MUTE = "prevent_ringing_option_mute";
-    static final String KEY_NORMAL = "prevent_ringing_option_normal";
+    private static final String KEY_MASTER = "gesture_prevent_ringing_switch";
+    private static final String KEY_VIBRATE = "prevent_ringing_option_vibrate";
+    private static final String KEY_MUTE = "prevent_ringing_option_mute";
+    private static final String KEY_NORMAL = "prevent_ringing_option_normal";
 
-    static final String KEY_CYCLE = "prevent_ringing_option_cycle";
+    private static final String KEY_CYCLE = "prevent_ringing_option_cycle";
 
     private final String PREF_KEY_VIDEO = "gesture_prevent_ringing_video";
     private final String KEY = "gesture_prevent_ringing_category";
     private final Context mContext;
 
-    PreferenceCategory mPreferenceCategory;
-    MainSwitchPreference mMasterSwitch;
-    SwitchPreference mNormalPref;
-    SwitchPreference mVibratePref;
-    SwitchPreference mMutePref;
+    private PreferenceCategory mPreferenceCategory;
+    private MainSwitchPreference mMasterSwitch;
+    private SwitchPreference mNormalPref;
+    private SwitchPreference mVibratePref;
+    private SwitchPreference mMutePref;
 
     private SettingObserver mSettingObserver;
 
@@ -81,9 +80,6 @@ public class PreventRingingGesturePreferenceController extends AbstractPreferenc
     @Override
     public void displayPreference(PreferenceScreen screen) {
         super.displayPreference(screen);
-        if (!isAvailable()) {
-            return;
-        }
         mPreferenceCategory = screen.findPreference(getPreferenceKey());
         mMasterSwitch = screen.findPreference(KEY_MASTER);
         mNormalPref = makeSwitchPreference(KEY_NORMAL, R.string.prevent_ringing_option_normal);
@@ -116,9 +112,8 @@ public class PreventRingingGesturePreferenceController extends AbstractPreferenc
         final String preventRingingSetting = keyToSetting(preference.getKey());
         String settingsValue = Settings.Secure.getString(
                 mContext.getContentResolver(), Settings.Secure.VOLUME_HUSH_GESTURE);
-        if (settingsValue == null) settingsValue = KOSP_VOLUME_HUSH_OFF;
-        ArrayList<String> currentValue = new ArrayList<String>();
-        currentValue.addAll(Arrays.asList(settingsValue.split(",", 0)));
+        if (settingsValue == null || settingsValue.isEmpty()) settingsValue = KOSP_VOLUME_HUSH_OFF;
+        final ArrayList<String> currentValue = new ArrayList<>(Arrays.asList(settingsValue.split(",", 3)));
 
         if (isAdd) {
             if (currentValue.get(0).equals(KOSP_VOLUME_HUSH_OFF))
@@ -136,19 +131,8 @@ public class PreventRingingGesturePreferenceController extends AbstractPreferenc
             }
         }
 
-        String value = "";
-        boolean first = true;
-        for (String str : currentValue) {
-            if (first) {
-                value += str;
-                first = false;
-                continue;
-            }
-            value += "," + str;
-        }
-        Settings.Secure.putString(mContext.getContentResolver(),
-                Settings.Secure.VOLUME_HUSH_GESTURE, value);
-        return true;
+        return Settings.Secure.putString(mContext.getContentResolver(),
+                Settings.Secure.VOLUME_HUSH_GESTURE, TextUtils.join(",", currentValue));
     }
 
     @Override
@@ -156,7 +140,7 @@ public class PreventRingingGesturePreferenceController extends AbstractPreferenc
         final String preventRingingSetting = Settings.Secure.getString(
                 mContext.getContentResolver(), Settings.Secure.VOLUME_HUSH_GESTURE);
 
-        final boolean enabled = preventRingingSetting != null &&
+        final boolean enabled = preventRingingSetting != null && !preventRingingSetting.isEmpty() &&
                 !preventRingingSetting.equals(KOSP_VOLUME_HUSH_OFF);
         if (mVibratePref != null) mVibratePref.setEnabled(enabled);
         if (mMutePref != null) mMutePref.setEnabled(enabled);
@@ -176,15 +160,15 @@ public class PreventRingingGesturePreferenceController extends AbstractPreferenc
     @Override
     public void onResume() {
         if (mSettingObserver != null) {
-            mSettingObserver.register(mContext.getContentResolver());
-            mSettingObserver.onChange(false, null);
+            mSettingObserver.register();
+            updateState(mPreferenceCategory);
         }
     }
 
     @Override
     public void onPause() {
         if (mSettingObserver != null) {
-            mSettingObserver.unregister(mContext.getContentResolver());
+            mSettingObserver.unregister();
         }
     }
 
@@ -211,28 +195,26 @@ public class PreventRingingGesturePreferenceController extends AbstractPreferenc
     }
 
     private class SettingObserver extends ContentObserver {
-        private final Uri VOLUME_HUSH_GESTURE = Settings.Secure.getUriFor(
-                Settings.Secure.VOLUME_HUSH_GESTURE);
-
         private final Preference mPreference;
 
-        public SettingObserver(Preference preference) {
+        SettingObserver(Preference preference) {
             super(new Handler());
             mPreference = preference;
         }
 
-        public void register(ContentResolver cr) {
-            cr.registerContentObserver(VOLUME_HUSH_GESTURE, false, this);
+        void register() {
+            mContext.getContentResolver().registerContentObserver(
+                Settings.Secure.getUriFor(Settings.Secure.VOLUME_HUSH_GESTURE),
+                false, this);
         }
 
-        public void unregister(ContentResolver cr) {
-            cr.unregisterContentObserver(this);
+        void unregister() {
+            mContext.getContentResolver().unregisterContentObserver(this);
         }
 
         @Override
         public void onChange(boolean selfChange, Uri uri) {
-            super.onChange(selfChange, uri);
-            if (uri == null || VOLUME_HUSH_GESTURE.equals(uri)) {
+            if (uri.getLastPathSegment().equals(Settings.Secure.VOLUME_HUSH_GESTURE)) {
                 updateState(mPreference);
             }
         }
