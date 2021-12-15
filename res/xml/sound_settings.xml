@@ -158,7 +158,8 @@
         android:summary="@string/custom_vibration_pattern_summary"
         android:order="-83"
         android:fragment="com.android.settings.sound.CustomVibrationPreferenceFragment"
-        android:visibility="gone"/>
+        android:visibility="gone"
+        settings:controller="com.android.settings.sound.CustomVibrationPreferenceController" />
 
     <com.android.settings.widget.PrimarySwitchPreference
         android:key="gesture_prevent_ringing_sound"

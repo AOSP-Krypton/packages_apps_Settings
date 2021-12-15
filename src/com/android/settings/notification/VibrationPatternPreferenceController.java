@@ -16,17 +16,14 @@
 
 package com.android.settings.notification;
 
-import android.content.ContentResolver;
 import android.content.Context;
 import android.media.AudioAttributes;
-import android.net.Uri;
 import android.os.VibrationEffect;
 import android.os.Vibrator;
 import android.provider.Settings;
 
 import androidx.preference.ListPreference;
 import androidx.preference.Preference;
-import androidx.preference.PreferenceCategory;
 import androidx.preference.PreferenceScreen;
 
 import com.android.settings.R;
@@ -41,15 +38,6 @@ public class VibrationPatternPreferenceController extends AbstractPreferenceCont
 
     private static final String KEY_VIB_PATTERN = "vibration_pattern";
     private static final String KEY_CUSTOM_VIB_CATEGORY = "custom_vibration_pattern";
-
-    private ListPreference mVibPattern;
-    private Preference mCustomVibCategory;
-
-    private static class VibrationEffectProxy {
-        public VibrationEffect createWaveform(long[] timings, int[] amplitudes, int repeat) {
-            return VibrationEffect.createWaveform(timings, amplitudes, repeat);
-        }
-    }
 
     private static final AudioAttributes VIBRATION_ATTRIBUTES = new AudioAttributes.Builder()
             .setContentType(AudioAttributes.CONTENT_TYPE_SONIFICATION)
@@ -120,8 +108,13 @@ public class VibrationPatternPreferenceController extends AbstractPreferenceCont
         0,
     };
 
+    private final Vibrator mVibrator;
+    private ListPreference mVibPattern;
+    private Preference mCustomVibCategory;
+
     public VibrationPatternPreferenceController(Context context) {
         super(context);
+        mVibrator = context.getSystemService(Vibrator.class);
     }
 
     @Override
@@ -137,9 +130,9 @@ public class VibrationPatternPreferenceController extends AbstractPreferenceCont
     @Override
     public void displayPreference(PreferenceScreen screen) {
         super.displayPreference(screen);
-        mVibPattern = (ListPreference) screen.findPreference(KEY_VIB_PATTERN);
-        int vibPattern = Settings.System.getInt(mContext.getContentResolver(),
+        final int vibPattern = Settings.System.getInt(mContext.getContentResolver(),
                 Settings.System.RINGTONE_VIBRATION_PATTERN, 0);
+        mVibPattern = screen.findPreference(KEY_VIB_PATTERN);
         mVibPattern.setValueIndex(vibPattern);
         mVibPattern.setSummary(mVibPattern.getEntries()[vibPattern]);
         mVibPattern.setOnPreferenceChangeListener(this);
@@ -151,11 +144,11 @@ public class VibrationPatternPreferenceController extends AbstractPreferenceCont
     @Override
     public boolean onPreferenceChange(Preference preference, Object newValue) {
         if (preference == mVibPattern) {
-            int vibPattern = Integer.valueOf((String) newValue);
+            final int vibPattern = Integer.parseInt((String) newValue);
             Settings.System.putInt(mContext.getContentResolver(),
                     Settings.System.RINGTONE_VIBRATION_PATTERN, vibPattern);
             mVibPattern.setSummary(mVibPattern.getEntries()[vibPattern]);
-            boolean isCustom = vibPattern == 5;
+            final boolean isCustom = vibPattern == 5;
             mCustomVibCategory.setVisible(isCustom);
             if (!isCustom) previewPattern();
             return true;
@@ -164,33 +157,31 @@ public class VibrationPatternPreferenceController extends AbstractPreferenceCont
     }
 
     private void previewPattern() {
-        Vibrator vibrator = (Vibrator) mContext.getSystemService(Context.VIBRATOR_SERVICE);
-        VibrationEffect effect;
-        VibrationEffectProxy vibrationEffectProxy = new VibrationEffectProxy();
-        int vibPattern = Settings.System.getInt(mContext.getContentResolver(),
+        if (mVibrator == null || !mVibrator.hasVibrator()) return;
+        final VibrationEffect effect;
+        final int vibPattern = Settings.System.getInt(mContext.getContentResolver(),
                 Settings.System.RINGTONE_VIBRATION_PATTERN, 0);
         switch (vibPattern) {
             case 1:
-                effect = vibrationEffectProxy.createWaveform(DZZZ_DA_VIBRATION_PATTERN,
+                effect = VibrationEffect.createWaveform(DZZZ_DA_VIBRATION_PATTERN,
                         FIVE_ELEMENTS_VIBRATION_AMPLITUDE, -1);
                 break;
             case 2:
-                effect = vibrationEffectProxy.createWaveform(MM_MM_MM_VIBRATION_PATTERN,
+                effect = VibrationEffect.createWaveform(MM_MM_MM_VIBRATION_PATTERN,
                         SEVEN_ELEMENTS_VIBRATION_AMPLITUDE, -1);
                 break;
             case 3:
-                effect = vibrationEffectProxy.createWaveform(DA_DA_DZZZ_VIBRATION_PATTERN,
+                effect = VibrationEffect.createWaveform(DA_DA_DZZZ_VIBRATION_PATTERN,
                         SEVEN_ELEMENTS_VIBRATION_AMPLITUDE, -1);
                 break;
             case 4:
-                effect = vibrationEffectProxy.createWaveform(DA_DZZZ_DA_VIBRATION_PATTERN,
+                effect = VibrationEffect.createWaveform(DA_DZZZ_DA_VIBRATION_PATTERN,
                         SEVEN_ELEMENTS_VIBRATION_AMPLITUDE, -1);
                 break;
             default:
-                effect = vibrationEffectProxy.createWaveform(SIMPLE_VIBRATION_PATTERN,
+                effect = VibrationEffect.createWaveform(SIMPLE_VIBRATION_PATTERN,
                         FIVE_ELEMENTS_VIBRATION_AMPLITUDE, -1);
-                break;
         }
-        vibrator.vibrate(effect, VIBRATION_ATTRIBUTES);
+        mVibrator.vibrate(effect, VIBRATION_ATTRIBUTES);
     }
 }
