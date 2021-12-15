@@ -131,8 +131,9 @@ public class PeakRefreshRatePreferenceController extends TogglePreferenceControl
         final String key = preference.getKey();
         if (key != null && key.equals(FORCE_REFRESH_RATE_PREF_KEY)) {
             mPreference.setEnabled(!((SwitchPreference) preference).isChecked());
-        }
-        return true;
+            return true;
+	}
+        return super.handlePreferenceTreeClick(preference);
     }
 
     @Override
