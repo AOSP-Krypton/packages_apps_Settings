@@ -42,8 +42,8 @@ import com.android.settingslib.core.lifecycle.events.OnPause;
 import com.android.settingslib.core.lifecycle.events.OnResume;
 import com.android.settingslib.widget.MainSwitchPreference;
 
+import java.util.ArrayList;
 import java.util.Arrays;
-import java.util.List;
 
 public class PreventRingingGesturePreferenceController extends AbstractPreferenceController
         implements Preference.OnPreferenceChangeListener, LifecycleObserver,
@@ -113,7 +113,7 @@ public class PreventRingingGesturePreferenceController extends AbstractPreferenc
         String settingsValue = Settings.Secure.getString(
                 mContext.getContentResolver(), Settings.Secure.VOLUME_HUSH_GESTURE);
         if (settingsValue == null || settingsValue.isEmpty()) settingsValue = KOSP_VOLUME_HUSH_OFF;
-        final List<String> currentValue = Arrays.asList(settingsValue.split(",", 0));
+        final ArrayList<String> currentValue = new ArrayList<>(Arrays.asList(settingsValue.split(",", 3)));
 
         if (isAdd) {
             if (currentValue.get(0).equals(KOSP_VOLUME_HUSH_OFF))
@@ -161,7 +161,7 @@ public class PreventRingingGesturePreferenceController extends AbstractPreferenc
     public void onResume() {
         if (mSettingObserver != null) {
             mSettingObserver.register();
-            mSettingObserver.onChange(false, null);
+            updateState(mPreferenceCategory);
         }
     }
 
