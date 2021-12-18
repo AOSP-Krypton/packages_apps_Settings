@@ -120,4 +120,27 @@
     <string name="short_label">短</string>
     <string name="long_label">长</string>
 
+    <!-- Vibration patterns -->
+    <string name="vibration_pattern_title">响铃震动</string>
+    <string name="pattern_dzzz_dzzz">dzzz-dzzz</string>
+    <string name="pattern_dzzz_da">dzzz-da</string>
+    <string name="pattern_mm_mm_mm">mm-mm-mm</string>
+    <string name="pattern_da_da_dzzz">da-da-dzzz</string>
+    <string name="pattern_da_dzzz_da">da-dzzz-da</string>
+    <string name="pattern_custom">自定义</string>
+    <string name="custom_vibration_pattern_title">自定义模式</string>
+    <string name="custom_vibration_pattern_summary">设置一个自定义震动模式</string>
+
+     <!-- Cycle through ringer modes gesture -->
+    <string name="prevent_ringing_option_normal">响铃</string>
+
+    <!-- Torch gesture -->
+    <string name="gesture_double_tap_power_summary_disabled">因手电筒手势启用而被禁用</string>
+    <string name="double_tap_power_for_torch_title">切换手电筒</string>
+    <string name="double_tap_power_for_torch_summary_enabled">快速双击电源键来切换手电筒</string>
+    <string name="double_tap_power_for_torch_summary_disabled">因快启相机手势启用而被禁用</string>
+    <string name="power_menu_long_press_for_torch">长按切换手电筒</string>
+    <string name="torch_long_press_power_text">长按切换手电筒只在屏幕关闭时有效。当手电筒打开时，再次长按手电筒将关闭它，即使屏幕打开。</string>
+    <string name="power_menu_summary_long_press_for_torch">切换手电筒</string>
+
 </resources>
