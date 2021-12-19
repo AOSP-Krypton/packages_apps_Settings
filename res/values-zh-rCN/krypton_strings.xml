@@ -80,7 +80,6 @@
 
     <!-- Developer info -->
     <string name="device_maintainer">设备维护者</string>
-    <string name="device_maintainer_name">@string/device_info_default</string>
 
     <!-- Krypton version -->
     <string name="krypton_version">Krypton 版本</string>
