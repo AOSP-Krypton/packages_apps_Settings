@@ -1,0 +1,145 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Copyright (C) 2021 AOSP-Krypton Project
+
+     Licensed under the Apache License, Version 2.0 (the "License");
+     you may not use this file except in compliance with the License.
+     You may obtain a copy of the License at
+
+          http://www.apache.org/licenses/LICENSE-2.0
+
+     Unless required by applicable law or agreed to in writing, software
+     distributed under the License is distributed on an "AS IS" BASIS,
+     WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+     See the License for the specific language governing permissions and
+     limitations under the License.
+-->
+<resources xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">
+
+    <!-- KOSP Updater -->
+    <string name="kosp_updater_title">KOSP 更新</string>
+
+    <!-- Krypton Settings Title and Description -->
+    <string name="krypton_settings_title">Krypton 設定</string>
+    <string name="krypton_settings_summary">自定義你的裝置</string>
+
+    <!-- LiveDisplay -->
+    <string name="live_display_summary">基於當前時間和環境條件來最佳化您的螢幕以改善可讀性和減少視疲勞</string>
+    <string name="live_display_mode">顯示模式</string>
+    <string name="live_display_color_temperature_title">色溫</string>
+    <string name="live_display_color_temperature_summary">白天: <xliff:g id="day_temperature">%1$d</xliff:g>K  夜晚: <xliff:g id="night_temperature">%2$d</xliff:g>K</string>
+    <string name="live_display_color_temperature_label"><xliff:g id="degrees">%1$d</xliff:g>K</string>
+    <string name="live_display_day">白天</string>
+    <string name="live_display_night">夜晚</string>
+    <string name="live_display_outdoor_mode_title">自動戶外模式</string>
+    <string name="live_display_outdoor_mode_summary">在強烈的陽光下自動增加螢幕亮度和飽和度</string>
+    <string name="live_display_low_power_title">降低耗電</string>
+    <string name="live_display_low_power_summary">在不降低亮度的情況下調整螢幕使耗電最低</string>
+    <string name="live_display_enhance_color_title">增強色彩</string>
+    <string name="live_display_enhance_color_summary">為膚色、風景和其他影象提升色彩飽和度</string>
+    <string name="live_display_color_profile_title">顏色配置檔案</string>
+    <string name="live_display_color_profile_standard_title">標準</string>
+    <string name="live_display_color_profile_standard_summary">準確的顏色和明亮的白色</string>
+    <string name="live_display_color_profile_natural_title">自然</string>
+    <string name="live_display_color_profile_natural_summary">寫實的顏色和膚色</string>
+    <string name="live_display_color_profile_dynamic_title">動態</string>
+    <string name="live_display_color_profile_dynamic_summary">增強的顏色和明亮的白色</string>
+    <string name="live_display_color_profile_cinema_title">影院</string>
+    <string name="live_display_color_profile_cinema_summary">針對影片的完美色彩重現</string>
+    <string name="live_display_color_profile_astronomy_title">天文</string>
+    <string name="live_display_color_profile_astronomy_summary">夜視的深紅色</string>
+    <string name="live_display_color_profile_photography_title">攝影</string>
+    <string name="live_display_color_profile_photography_summary">針對照片的完美色彩重現</string>
+    <string name="live_display_color_profile_basic_title">基礎</string>
+    <string name="live_display_color_profile_basic_summary">使用未校準的顯示配置</string>
+    <string name="live_display_color_profile_adaptive_title">自適應</string>
+    <string name="live_display_color_profile_adaptive_summary">顏色根據環境條件自適應</string>
+    <string name="live_display_color_profile_reading_title">閱讀</string>
+    <string name="live_display_color_profile_reading_summary">使用暖色調以減少視疲勞</string>
+    <string name="live_display_color_profile_srgb_title">sRGB</string>
+    <string name="live_display_color_profile_srgb_summary">顏色校準到 sRGB 色彩空間</string>
+    <string name="live_display_color_profile_dci_p3_title">DCI-P3</string>
+    <string name="live_display_color_profile_dci_p3_summary">顏色校準到 DCI-P3 色彩空間</string>
+    <string name="live_display_reading_mode_title">閱讀模式</string>
+    <string name="live_display_reading_mode_summary">適合長時間閱讀的灰度模式</string>
+    <string name="color_calibration_title">顏色校準</string>
+    <string name="color_calibration_summary">校準螢幕顏色</string>
+    <string name="color_red_title">紅</string>
+    <string name="color_green_title">綠</string>
+    <string name="color_blue_title">藍</string>
+
+    <!-- LiveDisplay : Picture Adjustment -->
+    <string name="picture_adjustment_title">圖片調整</string>
+    <string name="picture_adjustment_summary">調整色相、飽和度、亮度和對比度</string>
+    <string name="adj_hue_title">色相</string>
+    <string name="adj_saturation_title">飽和度</string>
+    <string name="adj_intensity_title">亮度</string>
+    <string name="adj_contrast_title">對比度</string>
+
+    <!-- String for removal of sensitive info on about, depending on tap -->
+    <string name="device_info_protected_single_press">點選以顯示資訊</string>
+
+    <!-- Developer info -->
+    <string name="device_maintainer">裝置維護者</string>
+
+    <!-- Krypton version -->
+    <string name="krypton_version">Krypton 版本</string>
+	
+    <!-- App details: open play store link if app is user installed -->
+    <string name="app_play_store">Google Play</string>
+
+    <string name="ambient_display_custom_title">自定義選項</string>
+
+    <!-- In-call feedback -->
+    <string name="incall_feeedback_vibrate_title">震動提示通話狀態</string>
+
+    <!-- Doze on charge -->
+    <string name="doze_on_charge_title">充電時保持開啟</string>
+    <string name="doze_on_charge_summary">充電時一直開啟息屏顯示</string>
+
+    <!-- Default getTimeSpentInApp string for Wellbeing to display. [CHAR LIMIT=NONE] --> 
+    <string name="duration_less_than_one_minute">少於一分鐘</string> 
+
+    <!-- Summary for Wellbeing screen time usage. [CHAR LIMIT=NONE] -->
+    <string name="screen_time_summary_usage_today">今天 %1$s</string>
+
+    <!-- Annoying Notifs -->
+    <string name="notification_sound_vib_screen_on_title">通知提醒</string>
+    <string name="notification_sound_vib_screen_on_summary">螢幕開啟時收到通知將播放提示音並震動</string>
+
+    <!-- Volume link notification -->
+    <string name="volume_link_notification_title">繫結響鈴和通知提示音</string>
+
+    <!-- Fullscreen gestures -->
+    <string name="other_controls_title">其他設定</string>
+    <string name="fullscreen_gestures_title">全面屏手勢</string>
+    <string name="fullscreen_gestures_summary">隱藏小白條</string>
+
+    <!-- Gesture navbar length -->
+    <string name="gesture_navbar_length_title">小白條長度</string>
+    <string name="short_label">短</string>
+    <string name="long_label">長</string>
+
+    <!-- Vibration patterns -->
+    <string name="vibration_pattern_title">響鈴震動</string>
+    <string name="pattern_dzzz_dzzz">dzzz-dzzz</string>
+    <string name="pattern_dzzz_da">dzzz-da</string>
+    <string name="pattern_mm_mm_mm">mm-mm-mm</string>
+    <string name="pattern_da_da_dzzz">da-da-dzzz</string>
+    <string name="pattern_da_dzzz_da">da-dzzz-da</string>
+    <string name="pattern_custom">自定義</string>
+    <string name="custom_vibration_pattern_title">自定義模式</string>
+    <string name="custom_vibration_pattern_summary">設定一個自定義震動模式</string>
+
+     <!-- Cycle through ringer modes gesture -->
+    <string name="prevent_ringing_option_normal">響鈴</string>
+
+    <!-- Torch gesture -->
+    <string name="gesture_double_tap_power_summary_disabled">因手電筒手勢啟用而被禁用</string>
+    <string name="double_tap_power_for_torch_title">切換手電筒</string>
+    <string name="double_tap_power_for_torch_summary_enabled">快速雙擊電源鍵來切換手電筒</string>
+    <string name="double_tap_power_for_torch_summary_disabled">因快啟相機手勢啟用而被禁用</string>
+    <string name="power_menu_long_press_for_torch">長按切換手電筒</string>
+    <string name="torch_long_press_power_text">長按切換手電筒只在螢幕關閉時有效。當手電筒開啟時，再次長按手電筒將關閉它，即使螢幕開啟。</string>
+    <string name="power_menu_summary_long_press_for_torch">切換手電筒</string>
+
+</resources>
