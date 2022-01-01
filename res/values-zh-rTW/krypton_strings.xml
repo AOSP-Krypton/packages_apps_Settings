@@ -142,4 +142,7 @@
     <string name="torch_long_press_power_text">長按切換手電筒只在螢幕關閉時有效。當手電筒開啟時，再次長按手電筒將關閉它，即使螢幕開啟。</string>
     <string name="power_menu_summary_long_press_for_torch">切換手電筒</string>
 
+    <!-- Title for connected TWS device group [CHAR LIMIT=none]-->
+    <string name="connected_tws_device_saved_title">已儲存的耳機</string>
+
 </resources>
