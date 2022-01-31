@@ -25,8 +25,9 @@
         android:title="@string/kosp_updater_title"
         android:icon="@drawable/ic_system_update"
         android:order="-270">
-        <intent android:targetPackage="com.krypton.updater"
-                android:targetClass="com.krypton.updater.ui.activity.UpdaterActivity" />
+        <intent android:action="android.intent.action.MAIN"
+            android:targetPackage="com.krypton.updater"
+            android:targetClass="com.krypton.updater.ui.MainActivity" />
     </Preference>
 
     <Preference
