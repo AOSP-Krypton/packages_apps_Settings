@@ -145,4 +145,10 @@
     <!-- Title for connected TWS device group [CHAR LIMIT=none]-->
     <string name="connected_tws_device_saved_title">已儲存的耳機</string>
 
+    <!-- AOD Schedule -->
+    <string name="always_on_display_schedule_title">環境顯示定時</string>
+    <string name="always_on_display_schedule_sunset">日落</string>
+    <string name="always_on_display_schedule_sunrise">日出</string>
+    <string name="always_on_display_schedule_mixed_sunset">從日落到某個時段開啟</string>
+    <string name="always_on_display_schedule_mixed_sunrise">從日出到某個時段開啟</string>
 </resources>
