@@ -145,4 +145,10 @@
     <!-- Title for connected TWS device group [CHAR LIMIT=none]-->
     <string name="connected_tws_device_saved_title">已保存的耳机</string>
 
+    <!-- AOD Schedule -->
+    <string name="always_on_display_schedule_title">环境显示定时</string>
+    <string name="always_on_display_schedule_sunset">日落</string>
+    <string name="always_on_display_schedule_sunrise">日出</string>
+    <string name="always_on_display_schedule_mixed_sunset">从日落到某个时段开启</string>
+    <string name="always_on_display_schedule_mixed_sunrise">从日出到某个时段开启</string>
 </resources>
