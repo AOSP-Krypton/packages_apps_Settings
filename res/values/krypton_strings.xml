@@ -100,4 +100,7 @@
     <!-- Cycle through ringer modes gesture -->
     <string name="prevent_ringing_option_normal">Normal</string>
 
+    <!-- Per-app volume control -->
+    <string name="app_volume">App volume</string>
+
 </resources>
