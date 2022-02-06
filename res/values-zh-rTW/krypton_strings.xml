@@ -151,4 +151,8 @@
     <string name="always_on_display_schedule_sunrise">日出</string>
     <string name="always_on_display_schedule_mixed_sunset">從日落到某個時段開啟</string>
     <string name="always_on_display_schedule_mixed_sunrise">從日出到某個時段開啟</string>
+
+    <!-- One shot automatic brightness -->
+    <string name="auto_brightness_one_shot_title">一次性亮度</string>
+    <string name="auto_brightness_one_shot_summary">亮度只會在開啟螢幕那一刻自動調整</string>
 </resources>
