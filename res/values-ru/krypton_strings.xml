@@ -1,0 +1,155 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Copyright (C) 2021 AOSP-Krypton Project
+
+     Licensed under the Apache License, Version 2.0 (the "License");
+     you may not use this file except in compliance with the License.
+     You may obtain a copy of the License at
+
+          http://www.apache.org/licenses/LICENSE-2.0
+
+     Unless required by applicable law or agreed to in writing, software
+     distributed under the License is distributed on an "AS IS" BASIS,
+     WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+     See the License for the specific language governing permissions and
+     limitations under the License.
+-->
+<resources xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">
+
+    <!-- KOSP Updater -->
+    <string name="kosp_updater_title">Обновление KOSP</string>
+
+    <!-- Krypton Settings Title and Description -->
+    <string name="krypton_settings_title">Настройки Krypton</string>
+    <string name="krypton_settings_summary">Кастомизация вашего устройства</string>
+
+    <!-- LiveDisplay -->
+    <string name="live_display_summary">Оптимизируйте экран в зависимости от времени суток и условий окружающей среды, чтобы улучшить читаемость и снизить нагрузку на глаза.</string>
+    <string name="live_display_mode">Режим отображения</string>
+    <string name="live_display_color_temperature_title">Цветовая температура</string>
+    <string name="live_display_color_temperature_summary">День: <xliff:g id="day_temperature">%1$d</xliff:g>K  Ночь: <xliff:g id="night_temperature">%2$d</xliff:g>K</string>
+    <string name="live_display_color_temperature_label"><xliff:g id="degrees">%1$d</xliff:g>K</string>
+    <string name="live_display_day">День</string>
+    <string name="live_display_night">Ночь</string>
+    <string name="live_display_outdoor_mode_title">Авторежим на улице</string>
+    <string name="live_display_outdoor_mode_summary">Автоматическое увеличение яркости и насыщенности при ярком солнечном свете</string>
+    <string name="live_display_low_power_title">Снизить энергопотребление</string>
+    <string name="live_display_low_power_summary">Отрегулируйте дисплей для минимального энергопотребления без снижения производительности</string>
+    <string name="live_display_enhance_color_title">Улучшить цвета</string>
+    <string name="live_display_enhance_color_summary">Улучшение цветовой насыщенности телесных тонов, пейзажей и других изображений</string>
+    <string name="live_display_color_profile_title">Цветовой профиль</string>
+    <string name="live_display_color_profile_standard_title">Стандарт</string>
+    <string name="live_display_color_profile_standard_summary">Точные цвета и яркий белый</string>
+    <string name="live_display_color_profile_natural_title">Естественный</string>
+    <string name="live_display_color_profile_natural_summary">Реалистичные цвета и телесные тона</string>
+    <string name="live_display_color_profile_dynamic_title">Динамический</string>
+    <string name="live_display_color_profile_dynamic_summary">Улучшенные цвета и яркий белый</string>
+    <string name="live_display_color_profile_cinema_title">Кино</string>
+    <string name="live_display_color_profile_cinema_summary">Идеальная цветопередача для видео</string>
+    <string name="live_display_color_profile_astronomy_title">Астрономия</string>
+    <string name="live_display_color_profile_astronomy_summary">Темно-красный для сохранения ночного зрения</string>
+    <string name="live_display_color_profile_photography_title">Фотография</string>
+    <string name="live_display_color_profile_photography_summary">Идеальная цветопередача для фотографий</string>
+    <string name="live_display_color_profile_basic_title">Базовый</string>
+    <string name="live_display_color_profile_basic_summary">Используйте дисплей без калибровки</string>
+    <string name="live_display_color_profile_adaptive_title">Адаптивный</string>
+    <string name="live_display_color_profile_adaptive_summary">Цвета адаптируются к окружающим условиям</string>
+    <string name="live_display_color_profile_reading_title">Чтение</string>
+    <string name="live_display_color_profile_reading_summary">Более теплые цвета для меньшей нагрузки на глаза</string>
+    <string name="live_display_color_profile_srgb_title">sRGB</string>
+    <string name="live_display_color_profile_srgb_summary">Цвета точно соответствуют цветовому пространству sRGB</string>
+    <string name="live_display_color_profile_dci_p3_title">DCI-P3</string>
+    <string name="live_display_color_profile_dci_p3_summary">Цвета точно соответствуют цветовому пространству DCI-P3.</string>
+    <string name="live_display_reading_mode_title">Режим чтения</string>
+    <string name="live_display_reading_mode_summary">Режим оттенков серого для длительного чтения</string>
+    <string name="color_calibration_title">Калибровка цвета</string>
+    <string name="color_calibration_summary">Калибровка цветов на экране</string>
+    <string name="color_red_title">Красный</string>
+    <string name="color_green_title">Зеленый</string>
+    <string name="color_blue_title">Синий</string>
+
+    <!-- LiveDisplay : Picture Adjustment -->
+    <string name="picture_adjustment_title">Настройка изображения</string>
+    <string name="picture_adjustment_summary">Отрегулируйте оттенок, насыщенность, интенсивность и контраст</string>
+    <string name="adj_hue_title">Оттенок</string>
+    <string name="adj_saturation_title">Насыщенность</string>
+    <string name="adj_intensity_title">Интенсивность</string>
+    <string name="adj_contrast_title">Контрастность</string>
+
+    <!-- String for removal of sensitive info on about, depending on tap -->
+    <string name="device_info_protected_single_press">Нажмите, чтобы показать информацию</string>
+
+    <!-- Developer info -->
+    <string name="device_maintainer">Сопровождающий устройства</string>
+    <string name="device_maintainer_name" translatable="false">@string/device_info_default</string>
+
+    <!-- Krypton version -->
+    <string name="krypton_version">Версия Krypton</string>
+	
+    <!-- App details: open play store link if app is user installed -->
+    <string name="app_play_store">Google Play</string>
+
+    <string name="ambient_display_custom_title">Пользовательские параметры</string>
+
+    <!-- In-call feedback -->
+    <string name="incall_feeedback_vibrate_title">Вибрация для индикации статуса вызова</string>
+
+    <!-- Doze on charge -->
+    <string name="doze_on_charge_title">Всегда включен при зарядке</string>
+    <string name="doze_on_charge_summary">Показывать экран сна все время при зарядке</string>
+
+    <!-- Default getTimeSpentInApp string for Wellbeing to display. [CHAR LIMIT=NONE] --> 
+    <string name="duration_less_than_one_minute">Менее 1 минуты</string> 
+
+    <!-- Summary for Wellbeing screen time usage. [CHAR LIMIT=NONE] -->
+    <string name="screen_time_summary_usage_today">%1$s сегодня</string>
+
+    <!-- Annoying Notifs -->
+    <string name="notification_sound_vib_screen_on_title">Оповещение об уведомлении</string>
+    <string name="notification_sound_vib_screen_on_summary">Воспроизведение звука и вибрации для уведомлений при включенном экране</string>
+
+    <!-- Volume link notification -->
+    <string name="volume_link_notification_title">Громкость звонков &amp; и уведомлений</string>
+
+    <!-- Fullscreen gestures -->
+    <string name="other_controls_title">Другие элементы управления</string>
+    <string name="fullscreen_gestures_title">Полноэкранные жесты</string>
+    <string name="fullscreen_gestures_summary">Скрыть панель навигации и место на клавиатуре</string>
+
+    <!-- Gesture navbar length -->
+    <string name="gesture_navbar_length_title">Длина области</string>
+    <string name="short_label">Короткая</string>
+    <string name="long_label">Длинная</string>
+
+    <!-- Vibration patterns -->
+    <string name="vibration_pattern_title">Шаблон вибрации рингтона</string>
+    <string name="pattern_dzzz_dzzz">dzzz-dzzz</string>
+    <string name="pattern_dzzz_da">dzzz-da</string>
+    <string name="pattern_mm_mm_mm">mm-mm-mm</string>
+    <string name="pattern_da_da_dzzz">da-da-dzzz</string>
+    <string name="pattern_da_dzzz_da">da-dzzz-da</string>
+    <string name="pattern_custom">Пользовательский</string>
+    <string name="custom_vibration_pattern_title">Пользовательский шаблон</string>
+    <string name="custom_vibration_pattern_summary">Установите пользовательский шаблон вибрации</string>
+
+    <!-- Cycle through ringer modes gesture -->
+    <string name="prevent_ringing_option_normal">Нормальный</string>
+
+    <!-- Torch gesture -->
+    <string name="gesture_double_tap_power_summary_disabled">Отключено жестом фонарика</string>
+    <string name="double_tap_power_for_torch_title">Переключить фонарик</string>
+    <string name="double_tap_power_for_torch_summary_enabled">Дважды быстро нажмите кнопку питания, чтобы включить фонарик</string>
+    <string name="double_tap_power_for_torch_summary_disabled">Отключено жестом открытия камеры</string>
+    <string name="power_menu_long_press_for_torch">Удерживайте, чтобы включить фонарик</string>
+    <string name="torch_long_press_power_text">Длительное нажатие на фонарик работает только при выключенном экране.\nПовторное длительное нажатие при включенном фонарике выключит его, даже если экран включен.</string>
+    <string name="power_menu_summary_long_press_for_torch">Переключить фонарик</string>
+
+    <!-- Title for connected TWS device group [CHAR LIMIT=none]-->
+    <string name="connected_tws_device_saved_title">Сохраненные наушники</string>
+
+    <!-- AOD Schedule -->
+    <string name="always_on_display_schedule_title">Расписание окружающего дисплея</string>
+    <string name="always_on_display_schedule_sunset">Закат</string>
+    <string name="always_on_display_schedule_sunrise">Восход солнца</string>
+    <string name="always_on_display_schedule_mixed_sunset">Включается от заката до времени</string>
+    <string name="always_on_display_schedule_mixed_sunrise">Включается от времени до восхода солнца</string>
+</resources>
