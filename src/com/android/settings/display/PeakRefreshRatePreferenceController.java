@@ -27,7 +27,6 @@ import android.view.Display;
 import androidx.annotation.VisibleForTesting;
 import androidx.preference.Preference;
 import androidx.preference.PreferenceScreen;
-import androidx.preference.SwitchPreference;
 
 import com.android.settings.R;
 import com.android.settings.core.TogglePreferenceController;
@@ -46,8 +45,6 @@ public class PeakRefreshRatePreferenceController extends TogglePreferenceControl
 
     private static final String TAG = "RefreshRatePrefCtr";
     private static final float INVALIDATE_REFRESH_RATE = -1f;
-    private static final String FORCE_REFRESH_RATE_PREF_KEY = "pref_key_peak_refresh_rate";
-    private static float NO_CONFIG = 0f;
 
     private final Handler mHandler;
     private final IDeviceConfigChange mOnDeviceConfigChange;
@@ -97,14 +94,10 @@ public class PeakRefreshRatePreferenceController extends TogglePreferenceControl
     @Override
     public int getAvailabilityStatus() {
         if (mContext.getResources().getBoolean(R.bool.config_show_smooth_display)) {
-            final float minRate = Settings.System.getFloat(mContext.getContentResolver(),
-                Settings.System.MIN_REFRESH_RATE, NO_CONFIG);
-            if (mPeakRefreshRate > DEFAULT_REFRESH_RATE) {
-                if (minRate >= mPeakRefreshRate) return DISABLED_DEPENDENT_SETTING;
-                return AVAILABLE;
-            }
+            return mPeakRefreshRate > DEFAULT_REFRESH_RATE ? AVAILABLE : UNSUPPORTED_ON_DEVICE;
+        } else {
+            return UNSUPPORTED_ON_DEVICE;
         }
-        return UNSUPPORTED_ON_DEVICE;
     }
 
     @Override
@@ -124,15 +117,6 @@ public class PeakRefreshRatePreferenceController extends TogglePreferenceControl
 
         return Settings.System.putFloat(
                 mContext.getContentResolver(), Settings.System.PEAK_REFRESH_RATE, peakRefreshRate);
-    }
-
-    @Override
-    public boolean handlePreferenceTreeClick(Preference preference) {
-        final String key = preference.getKey();
-        if (key != null && key.equals(FORCE_REFRESH_RATE_PREF_KEY)) {
-            mPreference.setEnabled(!((SwitchPreference) preference).isChecked());
-        }
-        return true;
     }
 
     @Override
