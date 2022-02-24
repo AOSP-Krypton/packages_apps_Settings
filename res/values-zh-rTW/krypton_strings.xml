@@ -165,7 +165,9 @@
     <string name="app_lock_title">應用鎖</string>
     <string name="app_lock_summary_singular">1 個受保護的應用</string>
     <string name="app_lock_summary_plural"><xliff:g example="2" id="Number of applications">%1$d</xliff:g> 個受保護的應用</string>
-    <string name="app_lock_authentication_dialog_title">解鎖以繼續</string>
+    <string name="app_lock_authentication_dialog_title">解鎖</string>
+    <string name="enable_debugging">啟用除錯</string>
+    <string name="disable_debugging">禁用除錯</string>
     <string name="app_lock_packages_title">受保護的應用</string>
     <string name="app_lock_packages_summary">選擇要用指紋解鎖或裝置憑證保護的應用程式</string>
     <string name="app_lock_timeout_title">自動鎖定超時</string>
@@ -176,5 +178,6 @@
           浮動通知將被自動禁用。
      </string>
     <string name="app_lock_notifications_disabled_summary">請先選擇一個受保護應用</string>
+    <string name="app_lock_biometrics_allowed_title">啟用生物識別</string>
     <string name="app_lock_footer_text">氣泡在超時後將會自動消失</string>
 </resources>
