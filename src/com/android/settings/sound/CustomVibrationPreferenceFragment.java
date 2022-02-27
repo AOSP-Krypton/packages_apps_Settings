@@ -27,7 +27,7 @@ import androidx.preference.Preference;
 
 import com.android.settings.R;
 import com.android.settingslib.core.AbstractPreferenceController;
-import com.krypton.settings.fragment.KryptonDashboardFragment;
+import com.krypton.settings.KryptonDashboardFragment;
 import com.krypton.settings.preference.CustomSeekBarPreference;
 
 import java.util.List;

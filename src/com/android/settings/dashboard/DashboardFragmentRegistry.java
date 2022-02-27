@@ -46,7 +46,7 @@ import com.android.settings.security.LockscreenDashboardFragment;
 import com.android.settings.security.SecuritySettings;
 import com.android.settings.system.SystemDashboardFragment;
 import com.android.settingslib.drawer.CategoryKey;
-import com.krypton.settings.fragment.KryptonSettingsFragment;
+import com.krypton.settings.KryptonSettingsFragment;
 
 import java.util.Map;
 

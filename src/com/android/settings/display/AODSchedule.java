@@ -35,7 +35,7 @@ import com.android.settings.R;
 import com.android.settings.SettingsPreferenceFragment;
 import com.android.settings.search.BaseSearchIndexProvider;
 import com.android.settingslib.search.SearchIndexable;
-import com.krypton.settings.fragment.KryptonDashboardFragment;
+import com.krypton.settings.KryptonDashboardFragment;
 
 import java.time.format.DateTimeFormatter;
 import java.time.LocalTime;

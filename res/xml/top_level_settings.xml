@@ -26,7 +26,7 @@
         android:summary="@string/krypton_settings_summary"
         android:icon="@drawable/ic_krypton"
         android:order="-160"
-        android:fragment="com.krypton.settings.fragment.KryptonSettingsFragment" />
+        android:fragment="com.krypton.settings.KryptonSettingsFragment" />
 
     <Preference
         android:fragment="com.android.settings.network.NetworkDashboardFragment"

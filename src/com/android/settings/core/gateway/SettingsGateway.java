@@ -164,7 +164,7 @@ import com.android.settings.wifi.details.WifiNetworkDetailsFragment;
 import com.android.settings.wifi.p2p.WifiP2pSettings;
 import com.android.settings.wifi.savedaccesspoints2.SavedAccessPointsWifiSettings2;
 import com.android.settings.wifi.tether.WifiTetherSettings;
-import com.krypton.settings.fragment.KryptonSettingsFragment;
+import com.krypton.settings.KryptonSettingsFragment;
 
 import com.android.settings.livedisplay.LiveDisplaySettings;
 
