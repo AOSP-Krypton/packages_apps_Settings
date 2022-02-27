@@ -63,6 +63,7 @@ android_library {
         "androidx.core_core",
         "androidx.appcompat_appcompat",
         "androidx.cardview_cardview",
+        "androidx.fragment_fragment",
         "androidx.fragment_fragment-ktx",
         "androidx.preference_preference",
         "androidx.preference_preference-ktx",
@@ -84,7 +85,7 @@ android_library {
         "android.hardware.dumpstate-V1.0-java",
         "android.hardware.dumpstate-V1.1-java",
         "lottie",
-        "PreferenceExtensions",
+        "vendor_support",
     ],
 
     libs: [
