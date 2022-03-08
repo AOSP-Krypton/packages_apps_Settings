@@ -25,6 +25,7 @@ import androidx.preference.Preference;
 import androidx.preference.PreferenceScreen;
 import androidx.preference.SwitchPreference;
 
+import com.android.settings.R;
 import com.android.settings.core.TogglePreferenceController;
 
 public class DozeOnChargePreferenceController extends TogglePreferenceController {
@@ -73,6 +74,11 @@ public class DozeOnChargePreferenceController extends TogglePreferenceController
         Settings.System.putInt(mContext.getContentResolver(),
                 Settings.System.DOZE_ON_CHARGE, isChecked ? 1 : 0);
         return true;
+    }
+
+    @Override
+    public int getSliceHighlightMenuRes() {
+        return R.string.menu_key_display;
     }
 
     public DozeOnChargePreferenceController setConfig(

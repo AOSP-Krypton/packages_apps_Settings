@@ -146,6 +146,11 @@ public class PreventRingingParentPreferenceController extends TogglePreferenceCo
     }
 
     @Override
+    public int getSliceHighlightMenuRes() {
+        return R.string.menu_key_sound;
+    }
+
+    @Override
     public void onStart() {
         if (mSettingObserver != null) {
             mSettingObserver.register(mContext.getContentResolver());
