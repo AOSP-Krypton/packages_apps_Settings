@@ -15,9 +15,6 @@
 -->
 <resources xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">
 
-    <!-- KOSP Updater -->
-    <string name="kosp_updater_title">KOSP 更新</string>
-
     <!-- Krypton Settings Title and Description -->
     <string name="krypton_settings_title">Krypton 設定</string>
     <string name="krypton_settings_summary">自定義你的裝置</string>

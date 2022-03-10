@@ -21,16 +21,6 @@
     android:title="@string/header_category_system">
 
     <Preference
-        android:key="kosp_updater"
-        android:title="@string/kosp_updater_title"
-        android:icon="@drawable/ic_system_update"
-        android:order="-270">
-        <intent android:action="android.intent.action.MAIN"
-            android:targetPackage="com.krypton.updater"
-            android:targetClass="com.krypton.updater.ui.MainActivity" />
-    </Preference>
-
-    <Preference
         android:key="language_input_settings"
         android:title="@string/language_settings"
         android:icon="@drawable/ic_settings_language"
