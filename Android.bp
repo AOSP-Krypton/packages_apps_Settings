@@ -47,12 +47,11 @@ android_library {
     srcs: [
         "src/**/*.java",
         "src/**/*.kt",
-        "KryptonSettings/src/**/*.kt",
+        ":KryptonSettings_srcs",
     ],
 
-    resource_dirs: [
-        "res",
-        "KryptonSettings/res",
+    resource_zips: [
+        ":KryptonSettings_res",
     ],
 
     static_libs: [
@@ -94,6 +93,9 @@ android_library {
         "ims-common",
         "app-compat-annotations",
     ],
+    additional_manifests: [
+        ":KryptonSettings_manifest",
+    ],
 }
 
 platform_compat_config {
@@ -121,7 +123,10 @@ android_app {
     ],
     resource_dirs: [],
     optimize: {
-        proguard_flags_files: ["proguard.flags"],
+        proguard_flags_files: [
+            "proguard.flags",
+            ":KryptonSettings_proguard_flags"
+        ],
     },
 }
 

@@ -15,10 +15,6 @@
 -->
 <resources xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">
 
-    <!-- Krypton Settings Title and Description -->
-    <string name="krypton_settings_title">Настройки Krypton</string>
-    <string name="krypton_settings_summary">Кастомизация вашего устройства</string>
-
     <!-- LiveDisplay -->
     <string name="live_display_summary">Оптимизируйте экран в зависимости от времени суток и условий окружающей среды, чтобы улучшить читаемость и снизить нагрузку на глаза.</string>
     <string name="live_display_mode">Режим отображения</string>

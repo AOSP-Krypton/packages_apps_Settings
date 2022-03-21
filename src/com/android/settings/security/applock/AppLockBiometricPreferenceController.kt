@@ -24,12 +24,12 @@ import android.hardware.biometrics.BiometricManager.Authenticators
 import androidx.preference.Preference
 import androidx.preference.SwitchPreference
 
-import com.krypton.settings.KryptonBasePreferenceController
+import com.android.settings.core.BasePreferenceController
 
 class AppLockBiometricPreferenceController(
     context: Context,
     key: String,
-) : KryptonBasePreferenceController(context, key),
+) : BasePreferenceController(context, key),
         Preference.OnPreferenceChangeListener {
 
     private val appLockManager = context.getSystemService(AppLockManager::class.java)

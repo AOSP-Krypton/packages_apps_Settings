@@ -23,12 +23,12 @@ import android.os.UserHandle
 import android.provider.Settings
 
 import com.android.settings.R
-import com.krypton.settings.KryptonBasePreferenceController
+import com.android.settings.core.BasePreferenceController
 
 class AODSchedulePreferenceController(
     context: Context,
     key: String,
-): KryptonBasePreferenceController(context, key) {
+): BasePreferenceController(context, key) {
 
     private var ambientDisplayConfig: AmbientDisplayConfiguration? = null
 

@@ -21,14 +21,6 @@
     android:key="top_level_settings">
 
     <com.android.settings.widget.HomepagePreference
-        android:key="top_level_krypton_settings"
-        android:title="@string/krypton_settings_title"
-        android:summary="@string/krypton_settings_summary"
-        android:icon="@drawable/ic_krypton"
-        android:order="-160"
-        android:fragment="com.krypton.settings.KryptonSettingsFragment" />
-
-    <com.android.settings.widget.HomepagePreference
         android:fragment="com.android.settings.network.NetworkDashboardFragment"
         android:icon="@drawable/ic_settings_wireless"
         android:key="top_level_network"

@@ -31,20 +31,18 @@ import android.text.format.DateFormat;
 import androidx.preference.ListPreference;
 import androidx.preference.Preference;
 
+import com.android.internal.logging.nano.MetricsProto;
 import com.android.settings.R;
 import com.android.settings.SettingsPreferenceFragment;
 import com.android.settings.search.BaseSearchIndexProvider;
 import com.android.settingslib.search.SearchIndexable;
-import com.krypton.settings.KryptonDashboardFragment;
 
 import java.time.format.DateTimeFormatter;
 import java.time.LocalTime;
 
 @SearchIndexable
-public class AODSchedule extends KryptonDashboardFragment implements
+public class AODSchedule extends SettingsPreferenceFragment implements
         Preference.OnPreferenceClickListener, Preference.OnPreferenceChangeListener {
-
-    public static final String TAG = "AODSchedule";
 
     public static final BaseSearchIndexProvider SEARCH_INDEX_DATA_PROVIDER =
             new BaseSearchIndexProvider(R.xml.always_on_display_schedule);
@@ -63,8 +61,8 @@ public class AODSchedule extends KryptonDashboardFragment implements
     }
 
     @Override
-    protected String getLogTag() {
-        return TAG;
+    public int getMetricsCategory() {
+        return MetricsProto.MetricsEvent.KRYPTON;
     }
 
     @Override

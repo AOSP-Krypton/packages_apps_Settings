@@ -37,13 +37,13 @@ import com.android.settings.password.ConfirmDeviceCredentialActivity
 import com.android.settings.security.SecuritySettings
 import com.android.settingslib.core.lifecycle.Lifecycle
 import com.android.settingslib.transition.SettingsTransitionHelper.TransitionType
-import com.krypton.settings.KryptonBasePreferenceController
+import com.android.settings.core.BasePreferenceController
 
 class AppLockSettingsPreferenceController(
     context: Context,
     private val host: SecuritySettings?,
     lifecycle: Lifecycle?,
-) : KryptonBasePreferenceController(context, KEY),
+) : BasePreferenceController(context, KEY),
         LifecycleEventObserver {
 
     private val lockPatternUtils = LockPatternUtils(context)

@@ -29,12 +29,12 @@ import androidx.preference.PreferenceScreen
 import com.android.internal.widget.LockPatternUtils
 import com.android.settings.R
 import com.android.settingslib.core.lifecycle.Lifecycle
-import com.krypton.settings.KryptonBasePreferenceController
+import com.android.settings.core.BasePreferenceController
 
 class AppLockNotificationPreferenceController(
     private val context: Context,
     lifecycle: Lifecycle?,
-) : KryptonBasePreferenceController(context, KEY),
+) : BasePreferenceController(context, KEY),
     LifecycleEventObserver {
 
     private val appLockManager = context.getSystemService(AppLockManager::class.java)

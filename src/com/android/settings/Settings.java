@@ -325,11 +325,6 @@ public class Settings extends SettingsActivity {
      */
     public static class AppDashboardActivity extends SettingsActivity {}
 
-    /**
-     * Krypton Settings
-     */
-    public static class KryptonSettingsActivity extends SettingsActivity {}
-
     // LiveDisplay
     public static class LiveDisplaySettingsActivity extends SettingsActivity { /* empty */ }
 }

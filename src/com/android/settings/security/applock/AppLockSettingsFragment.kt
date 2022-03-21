@@ -22,20 +22,23 @@ import android.view.Menu
 import android.view.MenuInflater
 import android.view.MenuItem
 
+import com.android.internal.logging.nano.MetricsProto
 import com.android.settings.R
 import com.android.settings.search.BaseSearchIndexProvider
 import com.android.settingslib.core.AbstractPreferenceController
 import com.android.settingslib.core.lifecycle.Lifecycle
 import com.android.settingslib.search.SearchIndexable
-import com.krypton.settings.KryptonDashboardFragment
+import com.android.settings.dashboard.DashboardFragment
 
 @SearchIndexable
-class AppLockSettingsFragment : KryptonDashboardFragment(),
+class AppLockSettingsFragment : DashboardFragment(),
     MenuItem.OnMenuItemClickListener {
 
     private var debugEnabled = SystemProperties.get(DEBUG_PROPERTY, null) == LEVEL_DEBUG
 
     override protected fun getPreferenceScreenResId() = R.xml.app_lock_settings
+
+    override fun getMetricsCategory() = MetricsProto.MetricsEvent.KRYPTON
 
     override protected fun getLogTag() = TAG
 

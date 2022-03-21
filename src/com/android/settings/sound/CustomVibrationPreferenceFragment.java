@@ -25,9 +25,10 @@ import android.util.Log;
 
 import androidx.preference.Preference;
 
+import com.android.internal.logging.nano.MetricsProto;
 import com.android.settings.R;
 import com.android.settingslib.core.AbstractPreferenceController;
-import com.krypton.settings.KryptonDashboardFragment;
+import com.android.settings.SettingsPreferenceFragment;
 import com.krypton.settings.preference.CustomSeekBarPreference;
 
 import java.util.List;
@@ -35,7 +36,7 @@ import java.util.List;
 /**
  * Settings for custom ringtone vibration pattern
  */
-public class CustomVibrationPreferenceFragment extends KryptonDashboardFragment
+public class CustomVibrationPreferenceFragment extends SettingsPreferenceFragment
         implements Preference.OnPreferenceChangeListener {
 
     private static final String TAG = "CustomVibrationPreferenceFragment";
@@ -76,8 +77,8 @@ public class CustomVibrationPreferenceFragment extends KryptonDashboardFragment
     }
 
     @Override
-    protected String getLogTag() {
-        return TAG;
+    public int getMetricsCategory() {
+        return MetricsProto.MetricsEvent.KRYPTON;
     }
 
     @Override

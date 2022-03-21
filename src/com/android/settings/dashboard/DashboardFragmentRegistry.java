@@ -46,7 +46,6 @@ import com.android.settings.security.LockscreenDashboardFragment;
 import com.android.settings.security.SecuritySettings;
 import com.android.settings.system.SystemDashboardFragment;
 import com.android.settingslib.drawer.CategoryKey;
-import com.krypton.settings.KryptonSettingsFragment;
 
 import java.util.Map;
 
@@ -54,8 +53,6 @@ import java.util.Map;
  * A registry to keep track of which page hosts which category.
  */
 public class DashboardFragmentRegistry {
-
-    private static final String CATEGORY_KRYPTON = "com.android.settings.category.ia.krypton";
 
     /**
      * Map from parent fragment to category key. The parent fragment hosts child with
@@ -73,8 +70,6 @@ public class DashboardFragmentRegistry {
         PARENT_TO_CATEGORY_KEY_MAP = new ArrayMap<>();
         PARENT_TO_CATEGORY_KEY_MAP.put(TopLevelSettings.class.getName(),
                 CategoryKey.CATEGORY_HOMEPAGE);
-        PARENT_TO_CATEGORY_KEY_MAP.put(KryptonSettingsFragment.class.getName(),
-                CATEGORY_KRYPTON);
         PARENT_TO_CATEGORY_KEY_MAP.put(
                 NetworkDashboardFragment.class.getName(), CategoryKey.CATEGORY_NETWORK);
         PARENT_TO_CATEGORY_KEY_MAP.put(ConnectedDeviceDashboardFragment.class.getName(),

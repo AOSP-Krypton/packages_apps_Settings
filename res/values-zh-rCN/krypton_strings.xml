@@ -15,10 +15,6 @@
 -->
 <resources xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">
 
-    <!-- Krypton Settings Title and Description -->
-    <string name="krypton_settings_title">Krypton 设置</string>
-    <string name="krypton_settings_summary">自定义你的设备</string>
-
     <!-- LiveDisplay -->
     <string name="live_display_summary">基于当前时间和环境条件来优化您的屏幕以改善可读性和减少视疲劳</string>
     <string name="live_display_mode">显示模式</string>
