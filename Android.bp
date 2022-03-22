@@ -122,6 +122,10 @@ android_app {
         "androidx.window.sidecar",
     ],
     resource_dirs: [],
+    manifest: ":KryptonSettings_manifest",
+    additional_manifests: [
+        "AndroidManifest.xml",
+    ],
     optimize: {
         proguard_flags_files: [
             "proguard.flags",
