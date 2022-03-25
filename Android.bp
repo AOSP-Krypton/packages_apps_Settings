@@ -44,7 +44,14 @@ android_library {
         "SettingsLib-search-defaults",
     ],
 
-    srcs: ["src/**/*.java"],
+    srcs: [
+        "src/**/*.java",
+        "src/**/*.kt",
+        ":KryptonSettings_srcs",
+    ],
+    resource_zips: [
+        ":KryptonSettings_res",
+    ],
 
     static_libs: [
         "androidx-constraintlayout_constraintlayout",
@@ -74,12 +81,18 @@ android_library {
         "android.hardware.dumpstate-V1.1-java",
         "lottie",
         "windowExtLib",
+        "androidx.fragment_fragment-ktx",
+        "androidx.preference_preference-ktx",
+        "vendor_support",
     ],
 
     libs: [
         "telephony-common",
         "ims-common",
         "app-compat-annotations",
+    ],
+    additional_manifests: [
+        ":KryptonSettings_manifest",
     ],
 }
 
@@ -107,8 +120,14 @@ android_app {
         "androidx.window.sidecar",
     ],
     resource_dirs: [],
+    additional_manifests: [
+        ":KryptonSettings_manifest",
+    ],
     optimize: {
-        proguard_flags_files: ["proguard.flags"],
+        proguard_flags_files: [
+            "proguard.flags",
+            ":KryptonSettings_proguard_flags",
+        ],
     },
 }
 
