@@ -84,6 +84,7 @@ android_library {
         "androidx.fragment_fragment-ktx",
         "androidx.preference_preference-ktx",
         "vendor_support",
+        "powerusagefeaturegoogle",
     ],
 
     libs: [
