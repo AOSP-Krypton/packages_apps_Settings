@@ -1,0 +1,102 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Copyright (C) 2021-2022 AOSP-Krypton Project
+
+     Licensed under the Apache License, Version 2.0 (the "License");
+     you may not use this file except in compliance with the License.
+     You may obtain a copy of the License at
+
+          http://www.apache.org/licenses/LICENSE-2.0
+
+     Unless required by applicable law or agreed to in writing, software
+     distributed under the License is distributed on an "AS IS" BASIS,
+     WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+     See the License for the specific language governing permissions and
+     limitations under the License.
+-->
+<resources xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">
+
+    <!-- String for removal of sensitive info on about, depending on tap -->
+    <string name="device_info_protected_single_press">点击以显示信息</string>
+
+    <!-- Developer info -->
+    <string name="device_maintainer">设备维护者</string>
+
+    <!-- Krypton version -->
+    <string name="krypton_version">Krypton 版本</string>
+	
+    <!-- App details: open play store link if app is user installed -->
+    <string name="app_play_store">Google Play</string>
+
+    <!-- In-call feedback -->
+    <string name="incall_feeedback_vibrate_title">震动提示通话状态</string>
+
+    <!-- Doze on charge -->
+    <string name="doze_on_charge_title">充电时保持开启</string>
+    <string name="doze_on_charge_summary">充电时一直开启息屏显示</string>
+
+    <!-- Default getTimeSpentInApp string for Wellbeing to display. [CHAR LIMIT=NONE] --> 
+    <string name="duration_less_than_one_minute">少于一分钟</string> 
+
+    <!-- Summary for Wellbeing screen time usage. [CHAR LIMIT=NONE] -->
+    <string name="screen_time_summary_usage_today">今天 %1$s</string>
+
+    <!-- Annoying Notifs -->
+    <string name="notification_sound_vib_screen_on_title">通知提醒</string>
+    <string name="notification_sound_vib_screen_on_summary">屏幕开启时收到通知将播放提示音并震动</string>
+
+    <!-- Volume link notification -->
+    <string name="volume_link_notification_title">绑定响铃和通知提示音</string>
+
+    <!-- Fullscreen gestures -->
+    <string name="other_controls_title">其他设置</string>
+    <string name="fullscreen_gestures_title">全面屏手势</string>
+    <string name="fullscreen_gestures_summary">隐藏小白条</string>
+
+    <!-- Gesture navbar length -->
+    <string name="gesture_navbar_length_title">小白条长度</string>
+    <string name="short_label">短</string>
+    <string name="long_label">长</string>
+
+    <!-- Torch gesture -->
+    <string name="gesture_double_tap_power_summary_disabled">因手电筒手势启用而被禁用</string>
+    <string name="double_tap_power_for_torch_title">切换手电筒</string>
+    <string name="double_tap_power_for_torch_summary_enabled">快速双击电源键来切换手电筒</string>
+    <string name="double_tap_power_for_torch_summary_disabled">因快启相机手势启用而被禁用</string>
+    <string name="power_menu_long_press_for_torch">长按切换手电筒</string>
+    <string name="torch_long_press_power_text">长按切换手电筒只在屏幕关闭时有效。当手电筒打开时，再次长按手电筒将关闭它，即使屏幕打开。</string>
+    <string name="power_menu_summary_long_press_for_torch">切换手电筒</string>
+
+    <!-- Title for connected TWS device group [CHAR LIMIT=none]-->
+    <string name="connected_tws_device_saved_title">已保存的耳机</string>
+
+    <!-- AOD Schedule -->
+    <string name="always_on_display_schedule_title">环境显示定时</string>
+    <string name="always_on_display_schedule_sunset">日落</string>
+    <string name="always_on_display_schedule_sunrise">日出</string>
+    <string name="always_on_display_schedule_mixed_sunset">从日落到某个时段开启</string>
+    <string name="always_on_display_schedule_mixed_sunrise">从日出到某个时段开启</string>
+
+    <!-- One shot automatic brightness -->
+    <string name="auto_brightness_one_shot_title">一次性亮度</string>
+    <string name="auto_brightness_one_shot_summary">亮度只会在打开屏幕那一刻自动调整</string>
+
+    <!-- Min / max refresh rate -->
+    <string name="min_refresh_rate_title">最低刷新率</string>
+    <string name="max_refresh_rate_title">最高刷新率</string>
+    <string name="refresh_rate_placeholder"><xliff:g id="refresh_rate" example="60">%1$s</xliff:g> Hz</string>
+
+    <!-- Vibration patterns -->
+    <string name="vibration_pattern_title">响铃震动</string>
+    <string name="pattern_dzzz_dzzz">dzzz-dzzz</string>
+    <string name="pattern_dzzz_da">dzzz-da</string>
+    <string name="pattern_mm_mm_mm">mm-mm-mm</string>
+    <string name="pattern_da_da_dzzz">da-da-dzzz</string>
+    <string name="pattern_da_dzzz_da">da-dzzz-da</string>
+    <string name="pattern_custom">自定义</string>
+    <string name="custom_vibration_pattern_title">自定义模式</string>
+    <string name="custom_vibration_pattern_summary">设置一个自定义震动模式</string>
+
+    <!-- Cycle through ringer modes gesture -->
+    <string name="prevent_ringing_option_normal">响铃</string>
+
+</resources>
