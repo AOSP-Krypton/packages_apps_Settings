@@ -39,6 +39,7 @@ import com.android.settings.widget.PreferenceCategoryController;
 import com.android.settingslib.core.AbstractPreferenceController;
 import com.android.settingslib.core.lifecycle.Lifecycle;
 import com.android.settingslib.search.SearchIndexable;
+import com.krypton.settings.security.applock.AppLockSettingsPreferenceController;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -141,6 +142,7 @@ public class SecuritySettings extends DashboardFragment {
         controllers.add(new PreferenceCategoryController(context, WORK_PROFILE_SECURITY_CATEGORY)
                 .setChildren(profileSecurityControllers));
         controllers.addAll(profileSecurityControllers);
+        controllers.add(new AppLockSettingsPreferenceController(context, host, lifecycle));
 
         return controllers;
     }

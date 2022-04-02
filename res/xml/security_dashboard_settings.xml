@@ -64,9 +64,7 @@
         <!-- App lock -->
         <com.android.settingslib.RestrictedPreference
             android:key="app_lock"
-            android:title="@string/app_lock_title"
-            android:fragment="com.krypton.settings.security.applock.AppLockSettingsFragment"
-            settings:controller="com.krypton.settings.security.applock.AppLockSettingsPreferenceController" />
+            android:title="@string/app_lock_title" />
     </PreferenceCategory>
 
     <PreferenceCategory
