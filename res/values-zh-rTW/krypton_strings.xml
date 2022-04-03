@@ -99,4 +99,7 @@
     <!-- Cycle through ringer modes gesture -->
     <string name="prevent_ringing_option_normal">響鈴</string>
 
+    <!-- Per-app volume control -->
+    <string name="app_volume">應用音量</string>
+
 </resources>
