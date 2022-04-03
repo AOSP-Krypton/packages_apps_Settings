@@ -1,6 +1,6 @@
 /*
  * Copyright (C) 2019 The Android Open Source Project
- *               2021 AOSP-Krypton Project
+ * Copyright (C) 2021-2022 AOSP-Krypton Project
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -25,38 +25,37 @@ import android.util.Log
 
 import androidx.preference.Preference
 
-import com.android.settings.core.BasePreferenceController
 import com.android.settings.R
+import com.android.settings.core.BasePreferenceController
 
-public class KOSPVersionPreferenceController(
-    private val context: Context,
+class KOSPVersionPreferenceController(
+    context: Context,
     preferenceKey: String?
-): BasePreferenceController(context, preferenceKey) {
-    private val GITHUB_URI = Uri.parse("https://github.com/AOSP-Krypton")
+) : BasePreferenceController(context, preferenceKey) {
 
-    override public fun getAvailabilityStatus() = AVAILABLE
+    override fun getAvailabilityStatus(): Int = AVAILABLE
 
-    override public fun getSummary() = SystemProperties.get(KRYPTON_VERSION_PROP,
-        context.getString(R.string.device_info_not_available))
+    override fun getSummary(): CharSequence = SystemProperties.get(KRYPTON_VERSION_PROP,
+        mContext.getString(R.string.device_info_not_available))
 
-    override public fun handlePreferenceTreeClick(preference: Preference): Boolean {
-        val key: String? = preference.getKey()
-        if (key == null || !key.contentEquals(getPreferenceKey())) {
-            return false
+    override fun handlePreferenceTreeClick(preference: Preference) : Boolean {
+        if (preference.key != preferenceKey) return false
+        val resolvedActivities = mContext.packageManager.queryIntentActivities(CONTENT_INTENT, 0)
+        if (resolvedActivities.isEmpty()) {
+            Log.w(TAG, "No activity found to launch content intent!")
+        } else {
+            mContext.startActivity(CONTENT_INTENT)
         }
-
-        val intent = Intent(Intent.ACTION_VIEW, GITHUB_URI)
-        if (context.getPackageManager().queryIntentActivities(intent, 0).isEmpty()) {
-            Log.w(TAG, "queryIntentActivities returned empty")
-            return false
-        }
-
-        context.startActivity(intent)
         return true
     }
 
     companion object {
         private const val TAG = "KOSPVersionPreferenceController"
         private const val KRYPTON_VERSION_PROP = "ro.krypton.build.version"
+
+        private val CONTENT_INTENT = Intent(
+            Intent.ACTION_VIEW,
+            Uri.parse("https://github.com/AOSP-Krypton"),
+        )
     }
 }

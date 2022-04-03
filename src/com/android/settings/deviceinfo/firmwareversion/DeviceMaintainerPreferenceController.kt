@@ -1,5 +1,5 @@
 /*
- * Copyright (C) 2021 AOSP-Krypton Project
+ * Copyright (C) 2021-2022 AOSP-Krypton Project
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -18,13 +18,20 @@ package com.android.settings.deviceinfo.firmwareversion
 
 import android.content.Context
 
-import com.android.settings.core.BasePreferenceController
 import com.android.settings.R
+import com.android.settings.core.BasePreferenceController
 
-public class DeviceMaintainerPreferenceController(
-    private val context: Context,
+class DeviceMaintainerPreferenceController(
+    context: Context,
     preferenceKey: String?
-): BasePreferenceController(context, preferenceKey) {
-    override public fun getAvailabilityStatus() = AVAILABLE
-    override public fun getSummary() = context.getString(R.string.device_maintainer_name)
+) : BasePreferenceController(context, preferenceKey) {
+
+    override fun getAvailabilityStatus(): Int =
+        if (getSummary().isNotBlank())
+            AVAILABLE
+        else
+            UNSUPPORTED_ON_DEVICE
+
+    override fun getSummary(): CharSequence =
+        mContext.getString(R.string.device_maintainer_name)
 }
