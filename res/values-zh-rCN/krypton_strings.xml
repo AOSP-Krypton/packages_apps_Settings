@@ -102,5 +102,6 @@
     <!-- Per-app volume control -->
     <string name="app_volume">应用音量</string>
 
-
+    <!-- Volume panel position -->
+    <string name="volume_panel_position_title">音量面板居左</string>
 </resources>
