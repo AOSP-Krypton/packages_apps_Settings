@@ -104,4 +104,9 @@
 
     <!-- Volume panel position -->
     <string name="volume_panel_position_title">音量面板居左</string>
+
+    <!-- General -->
+    <string name="copied_to_clipboard">已複製到剪下板</string>
+    <string name="longpress_to_clipboard">長按複製</string>
+
 </resources>
