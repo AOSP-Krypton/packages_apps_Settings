@@ -109,4 +109,30 @@
     <string name="copied_to_clipboard">已复制到剪切板</string>
     <string name="longpress_to_clipboard">长按复制</string>
 
+    <!-- Hotspot -->
+    <string name="wifi_hotspot_hidden_ssid_title">隐藏热点</string>
+    <string name="wifi_hotspot_hidden_ssid_summary">设备热点将不会在 WLAN 列表中显示</string>
+    <string name="wifi_band_24ghz_and_5ghz">2.4 GHz &amp; 5 GHz</string>
+    <string name="wifi_band_24ghz_and_6ghz">2.4 GHz &amp; 6 GHz</string>
+    <string name="wifi_band_60ghz">60 GHz</string>
+    <plurals name="wifi_hotspot_auto_off_timeout">
+        <item quantity="other">若无设备连接，将在 <xliff:g id="DURATION">%1$d</xliff:g>分钟后 关闭热点</item>
+        <item quantity="one">若无设备连接，将在 <xliff:g id="DURATION">%1$d</xliff:g>分钟后 关闭热点</item>
+    </plurals>
+    <string name="wifi_hotspot_auto_off_timeout_never">永不</string>
+    <string name="wifi_hotspot_client_manager_title">已连接的设备</string>
+    <string name="wifi_hotspot_client_manager_summary">列出并管理连接到热点的设备，并设置最大客户端连接数量限制</string>
+    <string name="wifi_hotspot_client_manager_list_only_summary">列出连接到热点的设备</string>
+    <string name="wifi_hotspot_client_limit_title">连接设备上限</string>
+    <plurals name="wifi_hotspot_client_limit_summary">
+        <item quantity="other">最多 <xliff:g id="device_num">%1$d</xliff:g> 个设备连接到热点</item>
+        <item quantity="one">最多 <xliff:g id="device_num">%1$d</xliff:g> 个设备连接到热点</item>
+    </plurals>
+    <string name="wifi_hotspot_blocked_clients_list_title">黑名单设备</string>
+    <string name="wifi_hotspot_connected_clients_list_title">已连接的设备</string>
+    <string name="wifi_hotspot_block_client_dialog_title">黑名单设备</string>
+    <string name="wifi_hotspot_block_client_dialog_text">此操作将会断开 \"<xliff:g id="device_name">%1$s</xliff:g>\" 与此设备的连接并加入黑名单</string>
+    <string name="wifi_hotspot_unblock_client_dialog_title">解禁设备</string>
+    <string name="wifi_hotspot_unblock_client_dialog_text">设备 \"<xliff:g id="device_name">%1$s</xliff:g>\" 将可连接此设备热点</string>
+    <string name="wifi_hotspot_client_manager_footer_text">目前没有任何客户端连接到此设备。当存在时，已连接和被阻止的设备将在此列出。</string>
 </resources>
