@@ -109,4 +109,30 @@
     <string name="copied_to_clipboard">已複製到剪下板</string>
     <string name="longpress_to_clipboard">長按複製</string>
 
+    <!-- Hotspot -->
+    <string name="wifi_hotspot_hidden_ssid_title">隱藏熱點</string>
+    <string name="wifi_hotspot_hidden_ssid_summary">裝置熱點將不會在 WLAN 列表中顯示</string>
+    <string name="wifi_band_24ghz_and_5ghz">2.4 GHz &amp; 5 GHz</string>
+    <string name="wifi_band_24ghz_and_6ghz">2.4 GHz &amp; 6 GHz</string>
+    <string name="wifi_band_60ghz">60 GHz</string>
+    <plurals name="wifi_hotspot_auto_off_timeout">
+        <item quantity="other">若無裝置連線，將在 <xliff:g id="DURATION">%1$d</xliff:g>分鐘後 關閉熱點</item>
+        <item quantity="one">若無裝置連線，將在 <xliff:g id="DURATION">%1$d</xliff:g>分鐘後 關閉熱點</item>
+    </plurals>
+    <string name="wifi_hotspot_auto_off_timeout_never">永不</string>
+    <string name="wifi_hotspot_client_manager_title">已連線的裝置</string>
+    <string name="wifi_hotspot_client_manager_summary">列出並管理連線到熱點的裝置，並設定最大客戶端連線數量限制</string>
+    <string name="wifi_hotspot_client_manager_list_only_summary">列出連線到熱點的裝置</string>
+    <string name="wifi_hotspot_client_limit_title">連線裝置上限</string>
+    <plurals name="wifi_hotspot_client_limit_summary">
+        <item quantity="other">最多 <xliff:g id="device_num">%1$d</xliff:g> 個裝置連線到熱點</item>
+        <item quantity="one">最多 <xliff:g id="device_num">%1$d</xliff:g> 個裝置連線到熱點</item>
+    </plurals>
+    <string name="wifi_hotspot_blocked_clients_list_title">黑名單裝置</string>
+    <string name="wifi_hotspot_connected_clients_list_title">已連線的裝置</string>
+    <string name="wifi_hotspot_block_client_dialog_title">黑名單裝置</string>
+    <string name="wifi_hotspot_block_client_dialog_text">此操作將會斷開 \"<xliff:g id="device_name">%1$s</xliff:g>\" 與此裝置的連線並加入黑名單</string>
+    <string name="wifi_hotspot_unblock_client_dialog_title">解禁裝置</string>
+    <string name="wifi_hotspot_unblock_client_dialog_text">裝置 \"<xliff:g id="device_name">%1$s</xliff:g>\" 將可連線此裝置熱點</string>
+    <string name="wifi_hotspot_client_manager_footer_text">目前沒有任何客戶端連線到此裝置。當存在時，已連線和被阻止的裝置將在此列出。</string>
 </resources>

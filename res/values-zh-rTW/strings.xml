@@ -1075,6 +1075,8 @@
     <string name="wifi_use_system_certs" msgid="5587866698144996931">"使用系統憑證"</string>
     <string name="wifi_do_not_provide_eap_user_cert" msgid="6336636553673065145">"不提供"</string>
     <string name="wifi_do_not_validate_eap_server" msgid="4673867078988209732">"不進行驗證"</string>
+    <!-- Warning message displayed if user choses not to validate the EAP server -->
+    <string name="wifi_do_not_validate_eap_server_warning">未指定證書。你的連線將公開</string>
     <string name="wifi_ssid_too_long" msgid="5961719058705013875">"網路名稱太長。"</string>
     <string name="wifi_no_domain_warning" msgid="1452133316532366772">"必須指定網域。"</string>
     <string name="wifi_no_user_cert_warning" msgid="8466376918835248956">"需要憑證。"</string>
