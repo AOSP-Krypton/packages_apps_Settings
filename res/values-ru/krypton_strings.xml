@@ -1,0 +1,139 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Copyright (C) 2021-2022 AOSP-Krypton Project
+
+     Licensed under the Apache License, Version 2.0 (the "License");
+     you may not use this file except in compliance with the License.
+     You may obtain a copy of the License at
+
+          http://www.apache.org/licenses/LICENSE-2.0
+
+     Unless required by applicable law or agreed to in writing, software
+     distributed under the License is distributed on an "AS IS" BASIS,
+     WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+     See the License for the specific language governing permissions and
+     limitations under the License.
+-->
+<resources xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">
+
+    <!-- String for removal of sensitive info on about, depending on tap -->
+    <string name="device_info_protected_single_press">Нажмите для показа информации</string>
+
+    <!-- Developer info -->
+    <string name="device_maintainer">Cопровождающий устройства</string>
+    <string name="device_maintainer_name" translatable="false"></string>
+
+    <!-- Krypton version -->
+    <string name="krypton_version">Версия Krypton</string>
+	
+    <!-- App details: open play store link if app is user installed -->
+    <string name="app_play_store">Google Play</string>
+
+    <!-- In-call feedback -->
+    <string name="incall_feeedback_vibrate_title">Вибрация для индикации состояния вызова</string>
+    <!-- Doze on charge -->
+    <string name="doze_on_charge_title">Всегда включен при зарядке</string>
+    <string name="doze_on_charge_summary">Постоянно показывать экран сна во время зарядки</string>
+
+    <!-- Default getTimeSpentInApp string for Wellbeing to display. [CHAR LIMIT=NONE] --> 
+    <string name="duration_less_than_one_minute">Менее 1 минуты</string> 
+
+    <!-- Summary for Wellbeing screen time usage. [CHAR LIMIT=NONE] -->
+    <string name="screen_time_summary_usage_today">%1$s сегодня</string>
+
+    <!-- Annoying Notifs -->
+    <string name="notification_sound_vib_screen_on_title">Оповещение об уведомлении</string>
+    <string name="notification_sound_vib_screen_on_summary">Воспроизведение звука и вибрации для уведомлений при включенном экране</string>
+
+    <!-- Volume link notification -->
+    <string name="volume_link_notification_title">Громкость звонка и уведомлений</string>
+
+    <!-- Fullscreen gestures -->
+    <string name="other_controls_title">Другие средства управления</string>
+    <string name="fullscreen_gestures_title">Полноэкранные жесты</string>
+    <string name="fullscreen_gestures_summary"
+>Скрыть область навигации и место на клавиатуре</string>
+
+    <!-- Gesture navbar length -->
+    <string name="gesture_navbar_length_title">Длина области</string>
+    <string name="short_label">Короче</string>
+    <string name="long_label">Длиннее</string>
+
+    <!-- Torch gesture -->
+    <string name="gesture_double_tap_power_summary_disabled">Отключено жестом фонарика</string>
+    <string name="double_tap_power_for_torch_title">Переключить фонарик</string>
+    <string name="double_tap_power_for_torch_summary_enabled">Дважды быстро нажмите кнопку питания, чтобы включить фонарик</string>
+    <string name="double_tap_power_for_torch_summary_disabled">Отключено жестом открытия камеры</string>
+    <string name="power_menu_long_press_for_torch">Удерживайте, чтобы включить фонарик</string>
+    <string name="torch_long_press_power_text">Длительное нажатие на фонарик работает только при выключенном экране.\nПовторное длительное нажатие при включенном фонарике выключит его, даже если экран включен.</string>
+    <string name="power_menu_summary_long_press_for_torch">Переключить фонарик</string>
+
+    <!-- Title for connected TWS device group [CHAR LIMIT=none]-->
+    <string name="connected_tws_device_saved_title">Сохраненные наушники</string>
+
+    <!-- AOD Schedule -->
+    <string name="always_on_display_schedule_title">Расписание AOD</string>
+    <string name="always_on_display_schedule_sunset">Закат</string>
+    <string name="always_on_display_schedule_sunrise">Восход солнца</string>
+    <string name="always_on_display_schedule_mixed_sunset">Включается от заката до времени</string>
+    <string name="always_on_display_schedule_mixed_sunrise">Включается от времени до восхода солнца</string>
+
+    <!-- One shot automatic brightness -->
+    <string name="auto_brightness_one_shot_title">Однократная автояркость</string>
+    <string name="auto_brightness_one_shot_summary">Регулировка яркости будет происходить только в момент включения экрана</string>
+
+    <!-- Min / max refresh rate -->
+    <string name="min_refresh_rate_title">Минимальная частота обновления</string>
+    <string name="max_refresh_rate_title">Максимальная частота обновления</string>
+    <string name="refresh_rate_placeholder"><xliff:g id="refresh_rate" example="60">%1$s</xliff:g> Гц</string>
+
+    <!-- Vibration patterns -->
+    <string name="vibration_pattern_title">Шаблон вибрации рингтона</string>
+    <string name="pattern_dzzz_dzzz">dzzz-dzzz</string>
+    <string name="pattern_dzzz_da">dzzz-da</string>
+    <string name="pattern_mm_mm_mm">mm-mm-mm</string>
+    <string name="pattern_da_da_dzzz">da-da-dzzz</string>
+    <string name="pattern_da_dzzz_da">da-dzzz-da</string>
+    <string name="pattern_custom">Пользовательский</string>
+    <string name="custom_vibration_pattern_title">Пользовательский шаблон</string>
+    <string name="custom_vibration_pattern_summary">Применить пользовательский шаблон вибрации</string>
+
+    <!-- Cycle through ringer modes gesture -->
+    <string name="prevent_ringing_option_normal">Обычный</string>
+
+    <!-- Per-app volume control -->
+    <string name="app_volume">Громкость приложения</string>
+
+    <!-- Volume panel position -->
+    <string name="volume_panel_position_title">Панель громкости слева</string>
+ 
+    <!-- General -->
+    <string name="copied_to_clipboard">Скопировано в буфер обмена</string>
+    <string name="longpress_to_clipboard">Скопировать длинным нажатием</string>
+
+    <!-- Hotspot -->
+    <string name="wifi_hotspot_hidden_ssid_title">Скрытая сеть</string>
+    <string name="wifi_hotspot_hidden_ssid_summary">Имя вашей мобильной точки доступа не будет отображаться в списке доступных сетей WLAN.</string>
+    <string name="wifi_band_24ghz_and_5ghz">2.4 ГГц и 5 ГГц</string>
+    <string name="wifi_band_24ghz_and_6ghz">2.4 ГГц и 6 ГГц</string>
+    <string name="wifi_band_60ghz">60 ГГц</string>
+    <plurals name="wifi_hotspot_auto_off_timeout">
+        <item quantity="other">Выключить, если устройство не подключено в течение <xliff:g id="DURATION">%1$d</xliff:g> минут</item>
+        <item quantity="one">Выключить, если устройство не подключено в течение <xliff:g id="DURATION">%1$d</xliff:g> минуты</item>
+    </plurals>
+    <string name="wifi_hotspot_auto_off_timeout_never">Никогда не выключать точку доступа</string>
+    <string name="wifi_hotspot_client_manager_title">Подключенные устройства</string>
+    <string name="wifi_hotspot_client_manager_summary">Список и управление устройствами, подключенными к точке доступа, и установка ограничения количества клиентов</string>
+    <string name="wifi_hotspot_client_manager_list_only_summary">Список устройств, подключенны к точке доступа</string>
+    <string name="wifi_hotspot_client_limit_title">Лимит подключеннных устройств</string>
+    <plurals name="wifi_hotspot_client_limit_summary">
+        <item quantity="other">До <xliff:g id="device_num">%1$d</xliff:g> устройств может подключиться к этой точке доступа</item>
+        <item quantity="one">До <xliff:g id="device_num">%1$d</xliff:g> устройства может подключиться к этой точке доступа</item>
+    </plurals>
+    <string name="wifi_hotspot_blocked_clients_list_title">Заблокированные устройства</string>
+    <string name="wifi_hotspot_connected_clients_list_title">Подключенные устройства</string>
+    <string name="wifi_hotspot_block_client_dialog_title">Заблокировать устройство</string>
+    <string name="wifi_hotspot_block_client_dialog_text">Это действие отключит \"<xliff:g id="device_name">%1$s</xliff:g>\" от этого устройства и добавит его в черный список.</string>
+    <string name="wifi_hotspot_unblock_client_dialog_title">Разблокировать устройство</string>
+    <string name="wifi_hotspot_unblock_client_dialog_text">Это устройство \"<xliff:g id="device_name">%1$s</xliff:g>\" сможет подключиться к этой точке доступа</string>
+    <string name="wifi_hotspot_client_manager_footer_text">В настоящее время нет доступных клиентов.  Подключенные и заблокированные устройства будут перечислены здесь, если они доступны.</string>
+</resources>
