@@ -36,5 +36,9 @@
         settings:controller="com.android.settings.gestures.ButtonNavigationSettingsAssistController"
     />
 
+    <SwitchPreference
+        android:key="nav_bar_inverse"
+        android:title="@string/nav_bar_inverse_title" />
+
 </PreferenceScreen>
 
