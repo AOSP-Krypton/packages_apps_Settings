@@ -51,9 +51,14 @@ android_library {
     defaults: [
         "SettingsLibDefaults",
         "SettingsLib-search-defaults",
+        "kosp_settings_core_defaults",
     ],
 
     srcs: ["src/**/*.java", "src/**/*.kt"],
+
+    resource_zips: [
+        ":KOSPSettings_res",
+    ],
 
     static_libs: [
         "androidx-constraintlayout_constraintlayout",
@@ -118,7 +123,10 @@ android_app {
     uses_libs: ["org.apache.http.legacy"],
     resource_dirs: [],
     optimize: {
-        proguard_flags_files: ["proguard.flags"],
+        proguard_flags_files: [
+            "proguard.flags",
+            ":KOSPSettings_proguard_flags",
+        ],
     },
 }
 

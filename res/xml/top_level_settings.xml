@@ -21,6 +21,15 @@
     android:key="top_level_settings">
 
     <com.android.settings.widget.HomepagePreference
+        android:fragment="com.kosp.settings.KOSPSettingsFragment"
+        android:icon="@drawable/ic_kosp"
+        android:key="top_level_kosp"
+        android:order="-160"
+        android:title="@string/kosp_settings_title"
+        android:summary="@string/kosp_settings_summary"
+        settings:highlightableMenuKey="@string/menu_key_kosp" />
+
+    <com.android.settings.widget.HomepagePreference
         android:fragment="com.android.settings.network.NetworkDashboardFragment"
         android:icon="@drawable/ic_settings_wireless"
         android:key="top_level_network"

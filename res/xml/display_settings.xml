@@ -97,6 +97,12 @@
     <PreferenceCategory
         android:title="@string/category_name_display_controls">
 
+        <Preference
+            android:key="livedisplay"
+            android:title="@*android:string/live_display_title"
+            android:fragment="com.kosp.settings.display.livedisplay.LiveDisplaySettings"
+            settings:controller="com.kosp.settings.display.livedisplay.LiveDisplayPreferenceController" />
+
         <!--
             Standard auto-rotation preference that will be shown when device state based
             auto-rotation settings are NOT available.
